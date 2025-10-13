@@ -1,0 +1,16 @@
+{
+  "name": "renataladies-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Root aggregator for the Next.js app in web/",
+  "scripts": {
+    "dev": "npm run dev --prefix web",
+    "dev:clean": "npm run dev:clean --prefix web",
+    "dev:stable": "npm run kill:node && npm run dev",
+    "kill:node": "taskkill /f /im node.exe 2>nul || echo \"No Node processes to kill\"",
+    "build": "npm run build --prefix web",
+    "start": "npm start --prefix web",
+    "lint": "npm run lint --prefix web",
+    "install:web": "npm ci --prefix web"
+  }
+}

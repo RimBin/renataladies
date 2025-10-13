@@ -1,0 +1,39 @@
+{
+  "name": "renataladies-web",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "dev:clean": "rimraf .next && next dev --port 3000",
+    "dev:turbo": "next dev --turbo --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/structure": "^2.36.2",
+    "@sanity/vision": "^3.57.0",
+    "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
+    "next": "^14.2.12",
+    "next-auth": "^4.24.7",
+    "next-sanity": "^7.1.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.57.0",
+    "stripe": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "@types/react": "^18.3.7",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.12",
+    "nodemon": "^3.1.10",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.2"
+  }
+}

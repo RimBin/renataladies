@@ -1,0 +1,25 @@
+# Vercel Ignore File
+# Files and folders to exclude from Vercel deployment
+
+# Development files
+*.md
+CLEANUP.md
+README.md
+
+# Scripts (not needed in production)
+dev-watchdog.ps1
+restart-server.ps1
+start-dev-stable.ps1
+start-dev.bat
+start-dev.ps1
+
+# Legacy/unused code
+renataladies-custom/
+
+# Root package.json (using web/package.json)
+package.json
+
+# Development tools
+.vscode/
+.idea/
+*.log
