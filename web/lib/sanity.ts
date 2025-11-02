@@ -7,6 +7,6 @@ export const sanityClient = createClient({
   useCdn: true,
 })
 
-export async function fetchSanity<T = any>(query: string, params: Record<string, unknown> = {}) {
+export async function fetchSanity<T = unknown>(query: string, params: Record<string, unknown> = {}) {
   return sanityClient.fetch<T>(query, params)
 }

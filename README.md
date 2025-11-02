@@ -4,7 +4,25 @@ Next.js e-commerce platform for nutrition plans, consultations, and wellness con
 
 ## 🚀 Quick Start
 
-### Development
+### Development (Recommended: PowerShell script)
+
+**Windows users** – use the stable dev script for automatic port cleanup:
+```powershell
+# From project root
+.\start-dev-stable.ps1
+
+# Or with clean cache
+.\start-dev-stable.ps1 -Clean
+```
+
+This will:
+- Clear port 3005 if occupied
+- Remove stale cache (with `-Clean`)
+- Start Next.js dev server
+
+Open [http://localhost:3005](http://localhost:3005)
+
+### Manual Development
 ```bash
 # Navigate to web directory
 cd web
@@ -16,7 +34,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3005](http://localhost:3005)
 
 ### Production Build
 ```bash
@@ -86,10 +104,20 @@ See `.env.example` for required variables.
 
 ## 🛠️ Scripts
 
-- `npm run dev` - Development server (port 3000)
+- `npm run dev` - Development server (**port 3005**)
 - `npm run build` - Production build
 - `npm start` - Production server
 - `npm run lint` - ESLint check
+
+### Port Management
+
+**RenataLadies**: Always runs on **port 3005** (reserved).
+
+If you work on multiple projects on the same server, assign unique ports:
+- RenataLadies: `3005` (this project)
+- Other projects: `3000`, `3006`, `3007`, etc.
+
+The `start-dev-stable.ps1` script ensures port 3005 is cleared before starting, so no conflicts occur.
 
 ## 📱 Features
 

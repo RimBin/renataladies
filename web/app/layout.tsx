@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
 import NavigationBar from '@/components/NavigationBar'
+import Footer from '@/components/Footer'
 import { Providers } from '@/components/Providers'
 import HideWhenEmbedded from '@/components/HideWhenEmbedded'
 import AppMain from '@/components/AppMain'
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  
   return (
     <html lang="lt">
       <body className={`${outfit.className} min-h-screen flex flex-col`}>
@@ -24,13 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <NavigationBar />
           </HideWhenEmbedded>
           <AppMain>{children}</AppMain>
-          <HideWhenEmbedded>
-            <footer className="border-t">
-              <div className="mx-auto max-w-6xl px-4 py-6 text-sm text-gray-600">
-                © {new Date().getFullYear()} Renataladies
-              </div>
-            </footer>
-          </HideWhenEmbedded>
+          <Footer />
         </Providers>
       </body>
     </html>

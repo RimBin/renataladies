@@ -1,21 +1,31 @@
-import { getProductBySlug } from '@/lib/products'
+import { getProductBySlug, products } from '@/lib/products'
 import { notFound } from 'next/navigation'
-import { AddToCartButton } from '@/components/product/AddToCartButton'
+import ProductClient from './ProductClient'
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug)
   if (!product) return notFound()
 
-  return (
-    <div className="mx-auto max-w-5xl px-4 py-10 grid md:grid-cols-2 gap-8">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={product.image} alt={product.title} className="w-full aspect-[4/3] object-cover rounded" />
-      <div className="space-y-4">
-  <h1 className="h2 font-extrabold">{product.title}</h1>
-  <p className="text-gray-600 text-responsive">€ {product.price.toFixed(2)}</p>
-  <p className="text-gray-700 text-responsive">{product.description}</p>
-        <AddToCartButton product={product} />
-      </div>
-    </div>
-  )
+  // Demo: Multiple images (in real app, product would have gallery array)
+  const images = [
+    product.image,
+    'https://placehold.co/800x800/F28ACD/FFFFFF?text=Nuotrauka+2',
+    'https://placehold.co/800x800/AB57F4/FFFFFF?text=Nuotrauka+3',
+    'https://placehold.co/800x800/F28ACD/FFFFFF?text=Nuotrauka+4',
+  ]
+
+  // Demo reviews
+  const reviews = [
+    { id: 1, author: 'Kristina M.', rating: 5, date: '2024-10-01', text: 'Puikus produktas! Pastebėjau rezultatus jau po 2 savaičių.' },
+    { id: 2, author: 'Rūta P.', rating: 5, date: '2024-09-28', text: 'Labai patiko, tikrai rekomenduoju!' },
+    { id: 3, author: 'Laura K.', rating: 4, date: '2024-09-15', text: 'Geras produktas, nors kaina šiek tiek aukšta.' },
+  ]
+
+  const avgRating = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
+
+  // Related products
+  const relatedProducts = products.filter(p => p.slug !== product.slug).slice(0, 3)
+
+  return <ProductClient product={product} images={images} reviews={reviews} avgRating={avgRating} relatedProducts={relatedProducts} />
 }
+ 

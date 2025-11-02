@@ -1,20 +1,63 @@
+import Image from "next/image";
+import Reveal from "../ui/Reveal";
+
 export default function WhyRenata() {
   const features = [
-    { title: 'Patogūs receptai', desc: 'Lengvai sekami ir skanūs, pritaikyti kasdienybei.' },
-    { title: 'Aiškūs planai', desc: 'Be perteklinės informacijos – tik tai, kas veikia.' },
-    { title: 'Palaikymas', desc: 'Žmogiškas ir motyvuojantis, kai jo reikia labiausiai.' },
-  ]
+    {
+      icon: "💡",
+      title: "Mokslu pagrįsta",
+      desc: "Jokių mitų ar trumpalaikių madų. Tik patikrinti metodai, kurie duoda ilgalaikius rezultatus ir gerina sveikatą.",
+    },
+    {
+      icon: "❤️",
+      title: "Sukurta moteriai",
+      desc: "Sistema atsižvelgia į moters kūno ypatumus, hormonų svyravimus ir gyvenimo būdo poreikius.",
+    },
+    {
+      icon: "🤝",
+      title: "Asmeninis ryšys",
+      desc: "Tai ne tik planai, bet ir nuolatinis mano palaikymas, motyvacija ir atsakymai į visus klausimus.",
+    },
+  ];
+
   return (
-    <section className="max-w-6xl mx-auto px-4 md:px-6 py-16">
-      <h2 className="h2 font-extrabold mb-6">Kodėl Renata Ladies?</h2>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map((f, i) => (
-          <div key={i} className="rounded-2xl bg-white shadow p-5">
-            <p className="font-semibold">{f.title}</p>
-            <p className="text-responsive text-neutral-700 mt-1">{f.desc}</p>
+    <section className="bg-white">
+      <div className="rl-section grid md:grid-cols-2 gap-12 items-center">
+        <Reveal>
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-bold text-rlText rl-section-title mb-4">
+                Kodėl mano sistema <span className="gradient-text">veikia</span>?
+              </h2>
+              <p className="rl-section-copy">
+                Sukūriau metodiką, kuri sujungia mitybos mokslą, judesio svarbą ir, svarbiausia, realaus gyvenimo patogumą.
+              </p>
+            </div>
+            <div className="space-y-6">
+              {features.map((feature, index) => (
+                <Reveal key={index} delay={0.1 * (index + 1)}>
+                  <div className="flex items-start gap-4">
+                    <span className="text-3xl mt-1">{feature.icon}</span>
+                    <div>
+                      <h3 className="font-semibold text-xl text-neutral-800">{feature.title}</h3>
+                      <p className="text-neutral-600 mt-1">{feature.desc}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        ))}
+        </Reveal>
+        <Reveal delay={0.2}>
+          <Image
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop"
+            alt="Renata konsultuoja klientę"
+            width={600}
+            height={700}
+            className="rounded-xl shadow-lg object-cover aspect-[4/5]"
+          />
+        </Reveal>
       </div>
     </section>
-  )
+  );
 }

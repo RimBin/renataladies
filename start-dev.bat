@@ -28,8 +28,9 @@ if exist .next (
 echo.
 
 REM Start the development server
-echo ▶️  Starting Next.js development server...
-echo 🌐 Server will be available at: http://localhost:3000
+echo ▶️  Starting RenataLadies Next.js server...
+echo 🌐 Server: http://localhost:3005
+echo 💜 Project: RenataLadies (Empowering Feminine Minimalism)
 echo.
 echo Press Ctrl+C to stop the server
 echo ----------------------------------------

@@ -13,19 +13,37 @@ Write-Host "===========================================" -ForegroundColor Cyan
 $ProjectPath = "D:\Projects\Renataladies\web"
 Set-Location $ProjectPath
 
-# Function to kill processes safely
-function Stop-NodeProcesses {
-    Write-Host "⏹️  Checking for existing Node processes..." -ForegroundColor Yellow
-    
-    $nodeProcesses = Get-Process -Name "node" -ErrorAction SilentlyContinue
-    if ($nodeProcesses) {
-        Write-Host "🔄 Stopping $($nodeProcesses.Count) Node.js process(es)..." -ForegroundColor Yellow
-        $nodeProcesses | Stop-Process -Force -ErrorAction SilentlyContinue
-        Start-Sleep -Seconds 2
-        Write-Host "✅ Node processes stopped" -ForegroundColor Green
-    } else {
-        Write-Host "✅ No Node processes running" -ForegroundColor Green
+# Helpers to inspect/stop only the port we care about
+function Get-PortProcesses {
+    param([int]$Port)
+
+    try {
+        Get-NetTCPConnection -LocalPort $Port -ErrorAction Stop | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object {
+            Get-Process -Id $_ -ErrorAction SilentlyContinue
+        }
     }
+    catch {
+        @()
+    }
+}
+
+function Stop-PortProcesses {
+    param([int]$Port)
+
+    $processes = Get-PortProcesses -Port $Port
+
+    if (-not $processes) {
+        Write-Host "✅ Port $Port is free" -ForegroundColor Green
+        return
+    }
+
+    Write-Host "⏹️  Port $Port in use by $($processes.Count) process(es). Stopping only those..." -ForegroundColor Yellow
+    foreach ($process in $processes) {
+        Write-Host "   • Stopping PID $($process.Id) ($($process.ProcessName))" -ForegroundColor DarkYellow
+        $process | Stop-Process -Force -ErrorAction SilentlyContinue
+    }
+    Start-Sleep -Seconds 1
+    Write-Host "✅ Port $Port has been cleared" -ForegroundColor Green
 }
 
 # Function to clear cache
@@ -45,14 +63,14 @@ function Clear-NextCache {
     }
 }
 
-# Function to check port availability
+# Function to check if port is responding
 function Test-Port {
-    param([int]$Port = 3000)
-    
+    param([int]$Port = 3005)
+
     try {
-        $connection = New-Object System.Net.Sockets.TcpClient
-        $connection.Connect("localhost", $Port)
-        $connection.Close()
+        $client = New-Object System.Net.Sockets.TcpClient
+        $client.Connect("localhost", $Port)
+        $client.Close()
         return $true
     }
     catch {
@@ -64,33 +82,30 @@ function Test-Port {
 try {
     Write-Host ""
     
-    # Stop existing processes
-    Stop-NodeProcesses
+    # Stop existing processes bound to this project's port
+    Stop-PortProcesses -Port 3005
     
     # Clear cache if requested
     Clear-NextCache
     
-    # Check if port 3000 is available
-    if (Test-Port -Port 3000) {
-        Write-Host "⚠️  Port 3000 is still in use. Waiting..." -ForegroundColor Yellow
-        Start-Sleep -Seconds 3
-        
-        if (Test-Port -Port 3000) {
-            Write-Host "❌ Port 3000 still occupied. Force stopping..." -ForegroundColor Red
-            netstat -ano | findstr :3000 | ForEach-Object {
-                $line = $_.Trim() -split '\s+'
-                if ($line.Length -ge 5) {
-                    $pid = $line[4]
-                    Stop-Process -Id $pid -Force -ErrorAction SilentlyContinue
-                }
-            }
-            Start-Sleep -Seconds 2
+    # Check if port 3005 is available
+    if (Test-Port -Port 3005) {
+        Write-Host "⚠️  Port 3005 responded even after cleanup. Waiting a moment and re-checking..." -ForegroundColor Yellow
+        Start-Sleep -Seconds 2
+
+        if (Test-Port -Port 3005) {
+            Write-Host "❌ Port 3005 is still occupied. This usually means another project uses the same port." -ForegroundColor Red
+            Write-Host "   Please stop that server manually or change its port so each project stays isolated." -ForegroundColor DarkRed
+            Write-Host "Press any key to exit..."
+            $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+            return
         }
     }
     
     Write-Host ""
-    Write-Host "▶️  Starting Next.js development server..." -ForegroundColor Green
-    Write-Host "🌐 Server will be available at: http://localhost:3000" -ForegroundColor Blue
+    Write-Host "▶️  Starting RenataLadies Next.js server..." -ForegroundColor Green
+    Write-Host "🌐 Server: http://localhost:3005" -ForegroundColor Magenta
+    Write-Host "💜 Project: RenataLadies (Empowering Feminine Minimalism)" -ForegroundColor Cyan
     Write-Host ""
     Write-Host "Press Ctrl+C to stop the server" -ForegroundColor Gray
     Write-Host "===========================================" -ForegroundColor Cyan

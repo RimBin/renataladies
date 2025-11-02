@@ -4,8 +4,14 @@ import { Card } from '@/components/ui/Card'
 
 export default function ProductsPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
-      <h1 className="h1 font-extrabold mb-6">Visos <span className="rl-grad-word">prekės</span></h1>
+    <div className="w-[92%] max-w-[1440px] mx-auto px-4 md:px-6 pt-24 md:pt-32 pb-16 sm:pb-24">
+      <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-end mb-12">
+        <div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText mb-0">
+            Visos <span className="gradient-text">prekės</span>
+          </h1>
+        </div>
+      </div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {products.map((p) => (
           <li key={p.id}>
@@ -15,7 +21,7 @@ export default function ProductsPage() {
               <img src={p.image} alt={p.title} className="w-full aspect-[4/3] object-cover" />
               <div className="p-4 space-y-1">
                 <h2 className="h4 font-medium">{p.title}</h2>
-                <p className="text-sm text-gray-600">€ {p.price.toFixed(2)}</p>
+                <p className="text-sm text-gray-600">{p.price.toFixed(2)} €</p>
               </div>
             </Link>
             </Card>

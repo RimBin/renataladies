@@ -8,7 +8,7 @@ Write-Host " RenataLadies Dev Server" -ForegroundColor Magenta
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Starting Next.js development server..." -ForegroundColor Green
-Write-Host "Server will be available at: http://localhost:3000" -ForegroundColor Yellow
+Write-Host "Server will be available at: http://localhost:3005" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "Press Ctrl+C to stop the server" -ForegroundColor Red
 Write-Host "----------------------------------------" -ForegroundColor Cyan

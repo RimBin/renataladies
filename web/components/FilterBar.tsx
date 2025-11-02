@@ -21,7 +21,7 @@ export default function FilterBar({
 }) {
   return (
     <section className="sticky top-0 z-20 bg-white/80 backdrop-blur border-b">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 flex flex-wrap gap-3 items-center">
+      <div className="rl-container py-3 flex flex-wrap gap-3 items-center">
         <div className="flex-1 min-w-[220px]">
           <input
             value={q}

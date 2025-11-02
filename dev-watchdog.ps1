@@ -2,7 +2,7 @@
 # This script ensures the Next.js dev server is always running
 
 $projectPath = "D:\Projects\Renataladies\web"
-$serverPort = 3000
+$serverPort = 3005
 $maxRetries = 3
 
 function Test-ServerRunning {
@@ -15,14 +15,30 @@ function Test-ServerRunning {
     }
 }
 
+function Get-PortPids {
+    param([int]$Port)
+    try {
+        (Get-NetTCPConnection -LocalPort $Port -ErrorAction Stop | Select-Object -ExpandProperty OwningProcess -Unique)
+    } catch { @() }
+}
+
+function Stop-PortPids {
+    param([int]$Port)
+    $pids = Get-PortPids -Port $Port
+    if (-not $pids) { return }
+    foreach ($pid in $pids) {
+        try { Stop-Process -Id $pid -Force -ErrorAction SilentlyContinue } catch {}
+    }
+}
+
 function Start-DevServer {
-    Write-Host "Starting Next.js dev server..." -ForegroundColor Green
+    Write-Host "Starting Next.js dev server on port $serverPort..." -ForegroundColor Green
     Set-Location $projectPath
-    
-    # Kill any existing Node processes
-    Get-Process -Name "node" -ErrorAction SilentlyContinue | Stop-Process -Force
-    Start-Sleep -Seconds 2
-    
+
+    # Stop only processes locking the configured port (don’t kill all node processes)
+    Stop-PortPids -Port $serverPort
+    Start-Sleep -Seconds 1
+
     # Start the dev server
     Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$projectPath'; npm run dev" -WindowStyle Normal
     

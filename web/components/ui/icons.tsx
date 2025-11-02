@@ -35,6 +35,31 @@ export function EtCircleArrowUpRightIcon({ className = '' }: { className?: strin
   )
 }
 
+// White round background with transparent arrow cutout (shows background through the arrow)
+export function EtCircleArrowCutoutIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      className={`inline-block ${className}`}
+      aria-hidden="true"
+    >
+      <defs>
+        <mask id="et-cutout-mask" maskUnits="userSpaceOnUse">
+          {/* Reveal everything by default */}
+          <rect x="0" y="0" width="24" height="24" fill="#ffffff" />
+          {/* Hide along the arrow paths to punch a hole */}
+          <path d="M8 16 L16 8" stroke="#000000" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <path d="M10 8 H16 V14" stroke="#000000" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </mask>
+      </defs>
+      <g mask="url(#et-cutout-mask)">
+        <circle cx="12" cy="12" r="11" fill="#ffffff" />
+      </g>
+    </svg>
+  )
+}
+
 export function CartIcon({ className = '' }: { className?: string }) {
   return (
     <svg

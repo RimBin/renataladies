@@ -1,9 +1,10 @@
 "use client"
 import { useMemo, useState } from 'react'
-import Hero from '@/components/Hero'
+import { GradientButton } from '@/components/ui/GradientButton'
 import FilterBar from '@/components/FilterBar'
 import PlanCard from '@/components/PlanCard'
 import FAQ from '@/components/FAQ'
+import NutritionCalculator from '@/components/NutritionCalculator'
 import { PLANS, GOALS, DIETS } from '@/lib/planData'
 
 type Plan = (typeof PLANS)[number]
@@ -22,36 +23,56 @@ export default function PlansPage() {
 
   return (
     <>
-      <Hero
-        eyebrow="MITYBOS PLANAI"
-        title="Išsirink mitybos planą pagal tikslą"
-        gradientWords={["mitybos", "planą"]}
-        subtitle="Subalansuoti planai su receptais, pirkinių sąrašais ir pakaitalais – kad kasdienis rėžimas būtų paprastas ir skanus."
-      />
+      <section className="bg-neutral-50 pt-28 md:pt-36">
+        <div className="rl-container pb-12 sm:pb-16">
+          <div className="rl-section-header">
+            <div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText rl-section-title">
+                Asmeninis <span className="gradient-text">mitybos planas</span> – pagal tavo kūną ir <span className="gradient-text">tikslą</span>
+              </h1>
+            </div>
+            <div>
+              <p className="rl-section-copy">
+                Įvesk savo duomenis. Pagal juos paruošiu asmeninį mitybos planą (PDF) ir atsiųsiu per 24 val.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Nutrition Calculator */}
+      <section className="bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 py-8">
+        <NutritionCalculator />
+      </section>
+
       <FilterBar q={q} setQ={setQ} goal={goal} setGoal={setGoal} diet={diet} setDiet={setDiet} goals={GOALS} diets={DIETS} />
 
-      <section className="max-w-6xl mx-auto px-4 md:px-6 py-10">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="bg-white">
+        <div className="rl-section">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((p) => (
             <PlanCard key={p.id} p={p} onPreview={setPreview} />
           ))}
+          </div>
+          {list.length === 0 && <div className="text-center py-20 text-neutral-500">Nerasta pagal pasirinktus filtrus.</div>}
         </div>
-        {list.length === 0 && <div className="text-center py-20 text-neutral-500">Nerasta pagal pasirinktus filtrus.</div>}
       </section>
 
-      <FAQ />
+      <section className="bg-white">
+        <FAQ />
+      </section>
 
       <section className="bg-white border-t">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 lg:py-16 flex flex-col lg:flex-row items-center gap-6">
+        <div className="rl-section flex flex-col lg:flex-row items-center gap-6">
           <div className="flex-1">
             <h2 className="h2 font-extrabold">
               Pasiruošusi maitintis <span className="rl-grad-word">lengviau</span>?
             </h2>
             <p className="text-neutral-600 mt-2 text-responsive">Išsirink planą ir gauk visą savaitę sudėliotą meniu su receptais ir pirkinių sąrašais.</p>
           </div>
-          <a href="/plans" className="bg-[linear-gradient(90deg,#AB57F4,#F28ACD)] text-white px-6 py-3 rounded-full font-semibold">
+          <GradientButton as="a" href="/mitybos-planai" withArrow icon="et-circle-cutout" iconHover="slide-right">
             Rinktis planą
-          </a>
+          </GradientButton>
         </div>
       </section>
 

@@ -11,6 +11,7 @@ type Plan = {
   samplePdf: string
   rating: number
 }
+import { GradientButton } from '@/components/ui/GradientButton'
 
 export default function PlanCard({ p, onPreview }: { p: Plan; onPreview: (p: Plan) => void }) {
   return (
@@ -39,15 +40,19 @@ export default function PlanCard({ p, onPreview }: { p: Plan; onPreview: (p: Pla
           ))}
         </ul>
         <div className="mt-4 grid grid-cols-2 gap-2">
-          <button onClick={() => onPreview(p)} className="w-full border rounded-full py-2 font-semibold">
+          <button onClick={() => onPreview(p)} className="w-full border rounded-full py-2 font-semibold text-sm">
             Peržiūrėti
           </button>
-          <a
+          <GradientButton
+            as="a"
             href={`/api/checkout?plan=${p.id}`}
-            className="w-full text-center bg-[linear-gradient(90deg,#AB57F4,#F28ACD)] text-white py-2 rounded-full font-semibold"
+            withArrow
+            icon="et-circle-cutout"
+            iconHover="slide-right"
+            className="w-full justify-center py-2 font-semibold text-sm"
           >
-            Rinktis planą
-          </a>
+            Rinktis
+          </GradientButton>
         </div>
       </div>
     </div>

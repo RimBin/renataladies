@@ -8,8 +8,7 @@ export const PLANS = [
     kcal: 1600,
     recipes: 35,
     includes: ['4 valgiai per dieną', 'Pirkinių sąrašai', 'Pakaitalai'],
-    thumb:
-      'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1400&auto=format&fit=crop',
+    thumb: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=95&w=2000&auto=format&fit=crop',
     samplePdf: '/samples/mityba-1600.pdf',
     rating: 4.9,
   },
@@ -22,8 +21,7 @@ export const PLANS = [
     kcal: 2100,
     recipes: 40,
     includes: ['Baltyminiai užkandžiai', 'Variantai sporto dienoms', 'Pirkinių sąrašai'],
-    thumb:
-      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1400&auto=format&fit=crop',
+    thumb: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?q=95&w=2000&auto=format&fit=crop',
     samplePdf: '/samples/mityba-2000.pdf',
     rating: 4.8,
   },
@@ -36,8 +34,7 @@ export const PLANS = [
     kcal: 1800,
     recipes: 38,
     includes: ['Augaliniai baltymai', 'Greiti pietūs', 'Sezoniniai produktai'],
-    thumb:
-      'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1400&auto=format&fit=crop',
+    thumb: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=95&w=2000&auto=format&fit=crop',
     samplePdf: '/samples/mityba-vegan.pdf',
     rating: 4.7,
   },
@@ -50,8 +47,7 @@ export const PLANS = [
     kcal: 1700,
     recipes: 34,
     includes: ['Be glitimo alternatyvos', 'Pirkinių sąrašai', 'Pakaitalai'],
-    thumb:
-      'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1400&auto=format&fit=crop',
+    thumb: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=95&w=2000&auto=format&fit=crop',
     samplePdf: '/samples/mityba-glutenfree.pdf',
     rating: 4.6,
   },
