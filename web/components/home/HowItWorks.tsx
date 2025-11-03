@@ -4,22 +4,22 @@ const steps = [
   {
     icon: '🎯',
     number: '01',
-    title: 'Pasirink savo kelią',
-    description: 'Pradėk nuo vienkartinės konsultacijos, specifinio plano, arba tapk VIP nare ir gauk viską iškart.',
+    title: 'Pasirenki savo kelią',
+    description: 'Pradedi nuo vienkartinės konsultacijos, specifinio plano, arba tampi VIP nare ir gauni viską iškart.',
     animation: 'icon-bounce',
   },
   {
     icon: '📋',
     number: '02',
-    title: 'Gauk asmeninį planą',
-    description: 'Užpildyk anketą ir gauk mitybos bei sporto planą, pritaikytą tavo kūnui, tikslams ir gyvenimo būdui.',
+    title: 'Gauni asmeninį planą',
+    description: 'Užpildai anketą ir gauni mitybos bei sporto planą, pritaikytą tavo kūnui, tikslams ir gyvenimo būdui.',
     animation: 'icon-pulse',
   },
   {
     icon: '🚀',
     number: '03',
-    title: 'Pasiek rezultatus su palaikymu',
-    description: 'Sportuok namuose, bet kur ir bet kada – jokių salių! Valgyk skaniai ir mėgaukis nuolatiniu Renatos bei visos bendruomenės palaikymu.',
+    title: 'Pasiekti rezultatus su palaikymu',
+    description: 'Sportuoji namuose, bet kur ir bet kada – jokių salių! Valgai skaniai ir mėgaujiesi nuolatiniu Renatos bei visos bendruomenės palaikymu.',
     animation: 'icon-float',
   },
 ];

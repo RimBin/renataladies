@@ -34,31 +34,19 @@ export default function Home() {
 
       <ProblemSolution />
       
-      <Reveal>
-        <StoriesSection />
-      </Reveal>
+      <StoriesSection />
 
       <ImageCarousel />
 
-      <Reveal>
-        <HomeServicesSection />
-      </Reveal>
+      <HomeServicesSection />
 
-      <Reveal>
-        <HowItWorks />
-      </Reveal>
+      <HowItWorks />
 
-      <Reveal>
-        <AboutAndWhy />
-      </Reveal>
+      <AboutAndWhy />
 
-      <Reveal>
-        <FAQ />
-      </Reveal>
+      <FAQ />
 
-      <Reveal>
-        <FinalCTA />
-      </Reveal>
+      <FinalCTA />
     </>
   )
 }

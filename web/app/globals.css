@@ -99,7 +99,7 @@ a { color: inherit; text-decoration: none; }
   }
 
   .rl-section-header {
-    @apply grid gap-8 md:grid-cols-[3fr_2fr] items-end mb-12;
+    @apply grid gap-4 md:grid-cols-[3fr_2fr] items-end mb-8;
   }
 
   .rl-section-title {

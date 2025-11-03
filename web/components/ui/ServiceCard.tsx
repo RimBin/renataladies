@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { GradientButton } from './GradientButton';
 
 interface ServiceCardProps {
@@ -44,44 +43,44 @@ export function ServiceCard({
 }: ServiceCardProps) {
   const cardClasses = [
     "flex bg-white rounded-2xl border border-neutral-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden h-full",
-    horizontal ? "flex-col md:flex-row md:items-center gap-6 md:gap-12" : "flex-col",
+    horizontal ? "flex-col lg:flex-row lg:items-stretch gap-0" : "flex-col",
     featured ? "border-purple-300 shadow-[0_8px_32px_rgba(171,87,244,0.15)]" : "",
     className
   ].filter(Boolean).join(" ");
 
-  const defaultImageHeight = compact ? "h-48" : featured ? "h-[22rem]" : "h-[20rem]";
-  const imageHeight = horizontal ? "h-64 md:h-[22rem]" : defaultImageHeight;
-  const titleSize = featured ? "text-3xl" : "text-2xl";
-  const padding = horizontal ? "p-6 md:p-8" : "p-6";
+  const defaultImageHeight = compact ? "h-48" : featured ? "h-80 lg:h-full" : "h-64 sm:h-80";
+  const imageHeight = horizontal ? "h-64 lg:h-auto lg:min-h-[24rem]" : defaultImageHeight;
+  const titleSize = featured ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl";
+  const padding = horizontal ? "p-6 sm:p-8 lg:p-10" : "p-5 sm:p-6";
   const imageObjectClass = imageFit === 'contain'
     ? horizontal
       ? 'object-contain object-center'
       : 'object-contain object-bottom'
     : 'object-cover';
   const imageWrapperClasses = horizontal
-    ? 'relative w-full md:w-[320px] md:flex-shrink-0'
+    ? 'relative w-full lg:w-[380px] lg:flex-shrink-0'
     : 'relative w-full';
 
   return (
     <div className={cardClasses}>
-      <div className={`${imageWrapperClasses} ${imageHeight} overflow-hidden bg-white flex items-center justify-center`}>
-        <Image
+      <div className={`${imageWrapperClasses} ${imageHeight} overflow-hidden bg-white flex items-center justify-center relative`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={imageSrc}
           alt={title}
-          fill
-          className={`transition-transform duration-300 group-hover:scale-105 ${imageObjectClass}`}
+          className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${imageObjectClass}`}
         />
         <span
-          className={`absolute top-4 left-4 px-2.5 py-1 text-xs font-semibold rounded-full ${tagColors[tag.color]}`}
+          className={`absolute top-4 left-4 px-2.5 py-1 text-xs font-semibold rounded-full ${tagColors[tag.color]} z-10`}
         >
           {tag.text}
         </span>
       </div>
-      <div className={`${padding} flex flex-col flex-grow ${horizontal ? 'w-full md:flex-1' : ''}`}>
+      <div className={`${padding} flex flex-col flex-grow ${horizontal ? 'w-full lg:flex-1' : ''}`}>
         <h3 className={`${titleSize} font-bold text-rlText mb-2`}>{title}</h3>
-        <p className="text-neutral-600 mb-5 text-sm">{description}</p>
+        <p className="text-neutral-600 mb-4 sm:mb-5 text-sm sm:text-base">{description}</p>
         {!compact && (
-          <ul className="space-y-2.5 mb-6 text-neutral-700 text-sm">
+          <ul className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6 text-neutral-700 text-sm">
             {features.map((feature, index) => (
               <li key={index} className="flex items-start gap-2.5">
                 <svg className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -93,10 +92,10 @@ export function ServiceCard({
           </ul>
         )}
         <div className="mt-auto">
-          <div className="mb-5">
-            <span className={`${featured ? 'text-4xl' : 'text-3xl'} font-bold text-rlText`}>{price}</span>
+          <div className="mb-4 sm:mb-5">
+            <span className={`${featured ? 'text-3xl sm:text-4xl' : 'text-2xl sm:text-3xl'} font-bold text-rlText`}>{price}</span>
           </div>
-          <GradientButton as="a" href={buttonHref} withArrow icon="et-circle-cutout" iconHover="slide-right" className="w-full justify-center text-base font-semibold py-3">
+          <GradientButton as="a" href={buttonHref} withArrow icon="et-circle-cutout" iconHover="slide-right" className="w-full justify-center text-sm sm:text-base font-semibold py-2.5 sm:py-3">
             {buttonText}
           </GradientButton>
         </div>

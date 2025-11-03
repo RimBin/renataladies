@@ -100,9 +100,15 @@ export default function NavigationBar() {
   }
 
   return (
-    <nav className="fixed top-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-[1440px] bg-white/70 backdrop-blur-lg shadow-lg border-b border-white/40 rounded-b-3xl px-4 md:px-6 py-2.5 md:py-3 flex items-center justify-between">
-      {/* Logo */}
-      <Link href="/" className="flex-shrink-0">
+    <>
+      {/* Beta Notice Banner */}
+      <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-[#AB57F4] to-[#F28ACD] text-white text-center py-2 px-4 text-sm font-medium">
+        🚧 Bandomoji versija – kol kas negalima pirkti. Greitai grįšime su visomis funkcijomis! 🚧
+      </div>
+      
+      <nav className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-full max-w-[1440px] bg-white/70 backdrop-blur-lg shadow-lg border-b border-white/40 rounded-b-3xl px-4 md:px-6 py-2.5 md:py-3 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex-shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/renata%20ladies%20logotipas.svg" alt="Renata Ladies" className="h-12 md:h-14 w-auto" />
       </Link>
@@ -387,5 +393,6 @@ export default function NavigationBar() {
         </div>
       )}
     </nav>
+    </>
   )
 }

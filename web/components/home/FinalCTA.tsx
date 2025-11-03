@@ -35,7 +35,7 @@ export default function FinalCTA() {
         <img 
           src="/images/Renata call to action.webp" 
           alt="Renata" 
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[65%_calc(50%-30px)] sm:object-center"
         />
       </motion.div>
 

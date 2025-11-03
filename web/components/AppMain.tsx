@@ -10,6 +10,6 @@ export default function AppMain({ children }: { children: React.ReactNode }) {
   }, [])
 
   return (
-    <main className="flex-1">{children}</main>
+    <main className="flex-1 mt-10">{children}</main>
   )
 }

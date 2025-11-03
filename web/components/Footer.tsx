@@ -33,7 +33,7 @@ export default function Footer() {
       </div>
 
       <div className="relative z-20">
-        <div className="rl-section">
+        <div className="rl-section pt-24 sm:pt-28">
           <div className="mb-16">
             <div className="rl-section-header">
               <div>

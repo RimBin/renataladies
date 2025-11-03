@@ -20,11 +20,10 @@ export default function Hero({ eyebrow, title, gradientWords, subtitle, children
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover"
         >
-          <source src="/video/Video.mov" type="video/mp4" />
+          <source src="/Video/atsispaudimai filtras.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/50 to-white"></div>
       </div>
       
       <div className="relative rl-container pt-24 md:pt-32 pb-0 text-center">
