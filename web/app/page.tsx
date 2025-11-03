@@ -19,9 +19,9 @@ export default function Home() {
         gradientWords={["gali", "daugiau", "manai"]}
         subtitle="Tavo pokyčiai prasideda namuose – su mitybos ir treniruočių planais, pritaikytais specialiai moterims, kurios nori sulieknėti, sustiprėti ir jaustis nuostabiai"
         trustBullets={[
+          "Asmeninis palaikymas kiekviename žingsnyje",
           "Sportuok namuose – jokių salių!",
-          "Aiškūs receptai ir porcijos",
-          "Asmeninis palaikymas kiekviename žingsnyje"
+          "Aiškūs receptai ir porcijos"
         ]}
       >
         <div className="flex flex-col items-center gap-4">
