@@ -17,7 +17,8 @@ start-dev.ps1
 renataladies-custom/
 
 # Root package.json (using web/package.json)
-package.json
+# IMPORTANT: Only ignore the root package.json, not the one under /web
+/package.json
 
 # Development tools
 .vscode/
