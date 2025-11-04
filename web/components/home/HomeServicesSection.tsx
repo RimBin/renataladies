@@ -50,7 +50,6 @@ const services = [
     tag: { text: '1:1', color: 'oneoff' as const },
     imageSrc: '/images/services/consultation.png',
     imageFit: 'contain' as const,
-    imageSize: 'small' as const,
     title: 'Vienkartinė konsultacija',
     description: '60–90 min. susitikimas konkrečiam klausimui – gauk aiškų veiksmų planą po pokalbio.',
     features: [
@@ -65,9 +64,6 @@ const services = [
 ];
 
 export default function HomeServicesSection() {
-  const primaryServices = services.slice(0, 3)
-  const highlightService = services[3]
-
   return (
     <section id="paslaugos" className="bg-neutral-50/70 scroll-mt-20">
       <div className="rl-section">
@@ -84,22 +80,11 @@ export default function HomeServicesSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {primaryServices.map((service, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service, index) => (
             <ServiceCard key={service.title} {...service} />
           ))}
         </div>
-
-        {highlightService && (
-          <div className="mt-6 lg:mt-10">
-            <ServiceCard
-              {...highlightService}
-              horizontal
-              featured
-              imageWrapperWidth="lg:w-[240px]"
-            />
-          </div>
-        )}
       </div>
     </section>
   );
