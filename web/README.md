@@ -27,6 +27,10 @@ npm run dev
 
 Open http://localhost:3000
 
+## Versions
+- Next.js 14.x + React 18.x (compatible with next-auth and Sanity).
+	This note also triggers a redeploy to ensure Vercel uses the latest commit.
+
 ## Environment
 Copy `.env.example` to `.env.local` if you plan to add Stripe or any secrets later.
 
