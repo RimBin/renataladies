@@ -2,13 +2,13 @@ import { GradientButton } from '@/components/ui/GradientButton'
 import Hero from '@/components/Hero'
 import StoriesSection from '@/components/home/StoriesSection'
 import ImageCarousel from '@/components/home/ImageCarousel'
-import AboutAndWhy from '@/components/home/AboutAndWhy'
+import AboutRenata from '@/components/home/AboutAndWhy'
+import WhyItWorks from '@/components/home/WhyItWorks'
 import ProblemSolution from '@/components/home/ProblemSolution'
 import HomeServicesSection from '@/components/home/HomeServicesSection'
 import HowItWorks from '@/components/home/HowItWorks'
 import FAQ from '@/components/FAQ'
 import FinalCTA from '@/components/home/FinalCTA'
-import Reveal from '@/components/ui/Reveal'
 import AvatarStack from '@/components/ui/AvatarStack'
 
 export default function Home() {
@@ -42,7 +42,9 @@ export default function Home() {
 
       <HowItWorks />
 
-      <AboutAndWhy />
+      <WhyItWorks />
+
+      <AboutRenata />
 
       <FAQ />
 
