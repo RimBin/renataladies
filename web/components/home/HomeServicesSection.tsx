@@ -96,7 +96,7 @@ export default function HomeServicesSection() {
               {...highlightService}
               horizontal
               featured
-              imageWrapperWidth="lg:w-[300px]"
+              imageWrapperWidth="lg:w-[240px]"
             />
           </div>
         )}
