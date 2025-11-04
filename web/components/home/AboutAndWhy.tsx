@@ -32,6 +32,13 @@ export default function AboutRenata() {
 				<div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 					<Reveal>
 						<div className="space-y-8">
+							<div>
+								<p className="text-lg text-neutral-600 mb-8">
+									Tai ne trumpalaikė dieta ar ekstremali programa – tai ilgalaikis gyvenimo būdo keitimas, kuris tampa natūraliu ir maloniu.
+									Kiekviena moteris unikali, todėl mano sistema pritaikoma individualiai – atsižvelgiant į tikslus,
+									gyvenimo ritmą, mitybos įpročius ir fizinį aktyvumą.
+								</p>
+							</div>
 							<div className="mb-8">
 								<div className="relative w-full h-64 overflow-hidden rounded-3xl">
 									<Image
