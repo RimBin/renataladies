@@ -50,6 +50,7 @@ const services = [
     tag: { text: '1:1', color: 'oneoff' as const },
     imageSrc: '/images/services/consultation.png',
     imageFit: 'contain' as const,
+    imageSize: 'small' as const,
     title: 'Vienkartinė konsultacija',
     description: '60–90 min. susitikimas konkrečiam klausimui – gauk aiškų veiksmų planą po pokalbio.',
     features: [
@@ -57,9 +58,9 @@ const services = [
       'Aiškios rekomendacijos ir atsakymai.',
       '7 dienų el. pašto palaikymas po konsultacijos.',
     ],
-    price: 'Nuo 29€ / kartą',
-    buttonText: 'Užsakyti konsultaciją',
-    buttonHref: '/konsultacijos#rezervacija',
+    price: '29€ / kartą',
+    buttonText: 'Rezervuoti vietą',
+    buttonHref: '/konsultacijos',
   },
 ];
 
@@ -95,6 +96,7 @@ export default function HomeServicesSection() {
               {...highlightService}
               horizontal
               featured
+              imageWrapperWidth="lg:w-[300px]"
             />
           </div>
         )}

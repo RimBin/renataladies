@@ -17,6 +17,8 @@ interface ServiceCardProps {
   featured?: boolean;
   compact?: boolean;
   horizontal?: boolean;
+  imageSize?: 'small' | 'medium' | 'large';
+  imageWrapperWidth?: string;
 }
 
 const tagColors = {
@@ -40,6 +42,8 @@ export function ServiceCard({
   featured = false,
   compact = false,
   horizontal = false,
+  imageSize = 'medium',
+  imageWrapperWidth = 'lg:w-[380px]',
 }: ServiceCardProps) {
   const cardClasses = [
     "flex bg-white rounded-2xl border border-neutral-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden h-full",
@@ -48,7 +52,13 @@ export function ServiceCard({
     className
   ].filter(Boolean).join(" ");
 
-  const defaultImageHeight = compact ? "h-48" : featured ? "h-80 lg:h-full" : "h-64 sm:h-80";
+  const imageSizeMap = {
+    small: compact ? "h-32" : featured ? "h-48 lg:h-full" : "h-40 sm:h-48",
+    medium: compact ? "h-48" : featured ? "h-80 lg:h-full" : "h-64 sm:h-80",
+    large: compact ? "h-64" : featured ? "h-96 lg:h-full" : "h-80 sm:h-96",
+  };
+
+  const defaultImageHeight = imageSizeMap[imageSize];
   const imageHeight = horizontal ? "h-64 lg:h-auto lg:min-h-[24rem]" : defaultImageHeight;
   const titleSize = featured ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl";
   const padding = horizontal ? "p-6 sm:p-8 lg:p-10" : "p-5 sm:p-6";
@@ -58,7 +68,7 @@ export function ServiceCard({
       : 'object-contain object-bottom'
     : 'object-cover';
   const imageWrapperClasses = horizontal
-    ? 'relative w-full lg:w-[380px] lg:flex-shrink-0'
+    ? `relative w-full ${imageWrapperWidth} lg:flex-shrink-0`
     : 'relative w-full';
 
   return (
