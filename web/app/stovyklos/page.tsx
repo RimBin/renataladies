@@ -57,28 +57,31 @@ export default function StovyklosPage() {
           </div>
         </div>
 
-        {/* Image Gallery - placeholder for now */}
+        {/* Image Gallery */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-          <div className="aspect-square rounded-2xl bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden">
-            <div className="w-full h-full flex items-center justify-center text-neutral-400">
-              <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
+          <div className="aspect-square rounded-2xl overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/images/stovyklos/stovykla.jpg" 
+              alt="Renata Ladies stovykla 2025" 
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div className="aspect-square rounded-2xl bg-gradient-to-br from-pink-100 to-purple-100 overflow-hidden">
-            <div className="w-full h-full flex items-center justify-center text-neutral-400">
-              <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
+          <div className="aspect-square rounded-2xl overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/images/stovyklos/stovykla.jpg" 
+              alt="Renata Ladies stovykla 2025" 
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div className="aspect-square rounded-2xl bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden sm:col-span-2 lg:col-span-1">
-            <div className="w-full h-full flex items-center justify-center text-neutral-400">
-              <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
+          <div className="aspect-square rounded-2xl overflow-hidden sm:col-span-2 lg:col-span-1">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/images/stovyklos/stovykla.jpg" 
+              alt="Renata Ladies stovykla 2025" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
@@ -245,14 +248,133 @@ export default function StovyklosPage() {
               >
                 Noriu dalyvauti
               </GradientButton>
-              <Link
-                href="/duk"
+              <a
+                href="#duk"
                 className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 border-2 border-[#F28ACD] text-[#F28ACD] hover:bg-pink-50 font-semibold transition text-lg"
               >
                 Dažniausi klausimai
-              </Link>
+              </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="duk" className="max-w-[1440px] mx-auto px-4 md:px-6 py-16 scroll-mt-20">
+        <div className="grid md:grid-cols-[3fr_2fr] gap-8 items-end mb-12">
+          <div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText mb-0">
+              Dažniausi <span className="gradient-text">klausimai</span>
+            </h2>
+          </div>
+          <div>
+            <p className="text-lg text-neutral-600">
+              Atsakymai į dažniausiai užduodamus klausimus apie Renata Ladies stovyklas
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <details className="group bg-white rounded-2xl shadow-sm border border-neutral-200/80 overflow-hidden">
+            <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-lg text-rlText hover:bg-neutral-50 transition">
+              Kada vyks kita stovykla?
+              <svg className="w-5 h-5 text-[#AB57F4] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div className="px-6 pb-6 text-neutral-600">
+              <p>Kitą Renata Ladies stovyklą planuojame 2026 metų vasarą. Tikslias datas paskelbsime pavasarį, kai tik bus patvirtintas viešbutis ir programa. Registracija prasidės apie kovo mėnesį.</p>
+            </div>
+          </details>
+
+          <details className="group bg-white rounded-2xl shadow-sm border border-neutral-200/80 overflow-hidden">
+            <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-lg text-rlText hover:bg-neutral-50 transition">
+              Kiek kainuoja stovykla?
+              <svg className="w-5 h-5 text-[#AB57F4] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div className="px-6 pb-6 text-neutral-600">
+              <p className="mb-3">Kaina priklauso nuo apgyvendinimo tipo ir ankstyvos registracijos nuolaidų. Paprastai stovyklos kaina apima:</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Apgyvendinimą visam laikotarpiui (4-5 dienos)</li>
+                <li>Visą maitinimą pagal mitybos planą</li>
+                <li>Visas treniruotes su Renata</li>
+                <li>Prieigą prie SPA ir baseino</li>
+                <li>Grupines veiklas ir pramogų programą</li>
+              </ul>
+              <p className="mt-3">Tikslias kainas paskelbsime kartu su registracijos atidarymu.</p>
+            </div>
+          </details>
+
+          <details className="group bg-white rounded-2xl shadow-sm border border-neutral-200/80 overflow-hidden">
+            <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-lg text-rlText hover:bg-neutral-50 transition">
+              Kokio lygio dalyvės gali atvykti?
+              <svg className="w-5 h-5 text-[#AB57F4] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div className="px-6 pb-6 text-neutral-600">
+              <p>Stovykla pritaikyta VISOMS moterims – ir pradedančioms, ir pažengusioms sportininkėms. Kiekviena treniruotė turi kelis intensyvumo lygius, todėl galėsi pasirinkti sau tinkamą krūvį. Svarbiausia – noras sportuoti ir gerėti!</p>
+            </div>
+          </details>
+
+          <details className="group bg-white rounded-2xl shadow-sm border border-neutral-200/80 overflow-hidden">
+            <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-lg text-rlText hover:bg-neutral-50 transition">
+              Ką reikia atsivežti?
+              <svg className="w-5 h-5 text-[#AB57F4] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div className="px-6 pb-6 text-neutral-600">
+              <p className="mb-3">Rekomenduojame atsivežti:</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Sportinę aprangą treniruotėms (3-4 komplektai)</li>
+                <li>Sportinius batus (treniruotėms ir bėgimui)</li>
+                <li>Maudymosi kostiumėlį baseino lankymui</li>
+                <li>Asmeninės higienos priemones</li>
+                <li>Vandens buteliuką (min. 1L)</li>
+                <li>Gerą nuotaiką ir norą bendrauti! 😊</li>
+              </ul>
+            </div>
+          </details>
+
+          <details className="group bg-white rounded-2xl shadow-sm border border-neutral-200/80 overflow-hidden">
+            <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-lg text-rlText hover:bg-neutral-50 transition">
+              Ar galiu atvykti viena?
+              <svg className="w-5 h-5 text-[#AB57F4] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div className="px-6 pb-6 text-neutral-600">
+              <p>Žinoma! Dauguma dalyvių atvyksta vienos ir stovyklos metu susiranda puikių draugių. Mūsų bendruomenė labai draugiška ir palanki – niekas nelieka nuošalyje. Per kelias dienas užmezgsi ryšius su motyvuotomis moterimis iš visos Lietuvos!</p>
+            </div>
+          </details>
+
+          <details className="group bg-white rounded-2xl shadow-sm border border-neutral-200/80 overflow-hidden">
+            <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-lg text-rlText hover:bg-neutral-50 transition">
+              Kaip vyksta maitinimas stovykloje?
+              <svg className="w-5 h-5 text-[#AB57F4] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div className="px-6 pb-6 text-neutral-600">
+              <p>Visas maitinimas organizuojamas pagal specialų mitybos planą – sveiki, subalansuoti ir SKANŪS patiekalai 4-5 kartus per dieną. Jokio „dietos" jausmo – valgyk sotinančiai ir pasieksi rezultatų. Jei turi alergijų ar mitybos apribojimų, praneški registracijos metu.</p>
+            </div>
+          </details>
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-neutral-600 mb-4">Neradai atsakymo į savo klausimą?</p>
+          <GradientButton
+            as="a"
+            href="/kontaktai"
+            withArrow
+            icon="et-circle-cutout"
+            iconHover="slide-right"
+          >
+            Susisiek su mumis
+          </GradientButton>
         </div>
       </section>
     </>

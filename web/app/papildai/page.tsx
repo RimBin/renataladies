@@ -20,7 +20,7 @@ const SUPPLEMENTS = [
   {
     id: 'vitamin-d',
     slug: 'vitaminas-d3',
-    title: 'Vitaminas D3',
+    title: 'Vitaminas D',
     category: 'Vitaminai',
     description: 'Būtinas vitaminų kompleksas imuniteto stiprinimui ir kaulų sveikatai.',
     longDescription: 'Aukštos koncentracijos vitaminas D3 padeda palaikyti sveiką imunitetą ir tvirtus kaulus. Ypač svarbus rudens ir žiemos laikotarpiu.',
@@ -28,7 +28,7 @@ const SUPPLEMENTS = [
     dosage: '1 kapsula per dieną',
     ingredients: 'Vitaminas D3 (2000 IU), MCT aliejus',
     price: '16.99',
-    image: 'https://images.unsplash.com/photo-1550572017-edd951aa8f72?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 'magnesium',
@@ -67,7 +67,7 @@ const SUPPLEMENTS = [
     dosage: '1 kapsula per dieną tuščiu skrandžiu',
     ingredients: '10 mlrd. KSV probiotikų (Lactobacillus, Bifidobacterium)',
     price: '28.99',
-    image: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 'multivitamin',
@@ -80,7 +80,7 @@ const SUPPLEMENTS = [
     dosage: '2 tabletės per dieną su maistu',
     ingredients: 'Vitaminai A, C, D, E, K, B kompleksas, geležis, cinkas',
     price: '22.99',
-    image: 'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?q=80&w=800&auto=format&fit=crop'
   },
 ]
 

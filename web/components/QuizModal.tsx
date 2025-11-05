@@ -5,7 +5,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
 import { GradientButton } from './ui/GradientButton'
 
-type QuizAnswer = 'programos' | 'mityba' | 'vip' | 'konsultacija'
+type QuizAnswer = 'programos' | 'mityba' | 'vip' | 'konsultacija' | 'premium'
 
 interface QuizModalProps {
   trigger?: React.ReactNode
@@ -16,6 +16,7 @@ const questions = [
     id: 1,
     question: 'Koks tavo pagrindinis tikslas?',
     options: [
+      { value: 'premium' as QuizAnswer, label: 'Visiška transformacija – ir treniruotės, ir mityba' },
       { value: 'programos' as QuizAnswer, label: 'Numesti svorį / sutvirtėti (treniruočių programa)' },
       { value: 'mityba' as QuizAnswer, label: 'Pagerinti mitybos įpročius (mitybos planas)' },
       { value: 'vip' as QuizAnswer, label: 'Reikia nuolatinio palaikymo (asmeninė priežiūra)' },
@@ -26,6 +27,7 @@ const questions = [
     id: 2,
     question: 'Kiek laiko gali skirti per savaitę?',
     options: [
+      { value: 'premium' as QuizAnswer, label: 'Noriu tvarkyti ir mitybą, ir treniruotis' },
       { value: 'programos' as QuizAnswer, label: '3–5 treniruotės (programa tinka)' },
       { value: 'mityba' as QuizAnswer, label: 'Nedaug laiko – noriu tvarkyti mitybą' },
       { value: 'vip' as QuizAnswer, label: 'Noriu plano ir savaitinių patikrinimų' },
@@ -36,6 +38,7 @@ const questions = [
     id: 3,
     question: 'Kaip sportuosi?',
     options: [
+      { value: 'premium' as QuizAnswer, label: 'Noriu prieigos prie visų video ir mitybos plano' },
       { value: 'programos' as QuizAnswer, label: 'Namuose / salėje pagal video programą' },
       { value: 'mityba' as QuizAnswer, label: 'Daugiau dėmesio mitybai nei sportui' },
       { value: 'vip' as QuizAnswer, label: 'Reikia individualaus plano ir kontrolės' },
@@ -46,6 +49,7 @@ const questions = [
     id: 4,
     question: 'Kas tau svarbiausia?',
     options: [
+      { value: 'premium' as QuizAnswer, label: 'Visi įrankiai vienoje vietoje + nuolaidos' },
       { value: 'programos' as QuizAnswer, label: 'Aiškios treniruotės su video' },
       { value: 'mityba' as QuizAnswer, label: 'Lengvi receptai ir pirkinių sąrašai' },
       { value: 'vip' as QuizAnswer, label: 'Nuolatinis palaikymas ir motyvacija' },
@@ -55,37 +59,45 @@ const questions = [
 ]
 
 const results = {
+  premium: {
+    title: 'Premium narystė',
+    text: 'Tau labiausiai tinka Premium narystė – gausi viską: visus video, mitybos planus su atnaujinimais, nuolaidas papildams, prioritetinę pagalbą ir daugiau. Kompleksinis sprendimas tavo transformacijai!',
+    primaryLink: '/#premium-plans',
+    primaryText: 'Rinktis Premium',
+    secondaryLink: '/programos',
+    secondaryText: 'Peržiūrėti programas',
+  },
   programos: {
     title: 'Treniruočių programos',
     text: 'Tau labiausiai tinka treniruočių programos – aiškūs video, struktūra ir progresas.',
-    primaryLink: '#programos',
+    primaryLink: '/programos',
     primaryText: 'Rinktis programą',
-    secondaryLink: '#atsiliepimai',
-    secondaryText: 'Peržiūrėti atsiliepimus',
+    secondaryLink: '/#premium-plans',
+    secondaryText: 'Arba rinktis Premium',
   },
   mityba: {
     title: 'Mitybos planas',
     text: 'Rekomenduoju mitybos planą – skanūs receptai ir aiškus dienos rėžimas.',
-    primaryLink: '#mityba',
+    primaryLink: '/mitybos-planai',
     primaryText: 'Rinktis mitybos planą',
-    secondaryLink: '#duk',
-    secondaryText: 'Turi klausimų? DUK',
+    secondaryLink: '/#premium-plans',
+    secondaryText: 'Arba rinktis Premium',
   },
   vip: {
     title: 'Asmeninė priežiūra (VIP)',
     text: 'Geriausias pasirinkimas – asmeninė priežiūra (VIP). Nuolatinis palaikymas ir savaitinės korekcijos.',
-    primaryLink: '#vip',
+    primaryLink: '/vip',
     primaryText: 'Rezervuoti VIP',
-    secondaryLink: '#kainos',
-    secondaryText: 'Palyginti planus',
+    secondaryLink: '/#premium-plans',
+    secondaryText: 'Arba rinktis Premium',
   },
   konsultacija: {
     title: 'Konsultacija 1:1',
     text: 'Siūlau pradėti nuo vienkartinės konsultacijos – gausi konkrečius atsakymus ir veiksmų planą.',
-  primaryLink: '/konsultacijos#rezervacija',
+    primaryLink: '/konsultacijos',
     primaryText: 'Užsisakyti konsultaciją',
-    secondaryLink: '#programos',
-    secondaryText: 'Peržiūrėti programas',
+    secondaryLink: '/#premium-plans',
+    secondaryText: 'Arba rinktis Premium',
   },
 }
 
@@ -111,6 +123,7 @@ export default function QuizModal({ trigger }: QuizModalProps) {
     if (currentStep === questions.length - 1) {
       // Calculate result
       const scores: Record<QuizAnswer, number> = {
+        premium: 0,
         programos: 0,
         mityba: 0,
         vip: 0,
@@ -121,7 +134,7 @@ export default function QuizModal({ trigger }: QuizModalProps) {
         scores[answer]++
       })
 
-      const order: QuizAnswer[] = ['vip', 'programos', 'mityba', 'konsultacija']
+      const order: QuizAnswer[] = ['premium', 'vip', 'programos', 'mityba', 'konsultacija']
       let best: QuizAnswer = 'programos'
       let bestScore = -1
 

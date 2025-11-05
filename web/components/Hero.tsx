@@ -32,8 +32,8 @@ export default function Hero({ eyebrow, title, gradientWords, subtitle, children
             {eyebrow}
           </p>
         )}
-        <div className="max-w-3xl mx-auto space-y-4">
-          <h1 className="display font-extrabold text-rlText">
+        <div className="max-w-5xl mx-auto space-y-4">
+          <h1 className="display font-extrabold text-rlText lg:whitespace-nowrap">
             <Gradientizer text={title} words={gradientWords} />
           </h1>
           {subtitle && <p className="text-neutral-700 text-responsive">{subtitle}</p>}
