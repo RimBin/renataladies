@@ -17,7 +17,7 @@ interface ServiceCardProps {
   featured?: boolean;
   compact?: boolean;
   horizontal?: boolean;
-  imageSize?: 'small' | 'medium' | 'large';
+  imageSize?: 'small' | 'medium' | 'large' | 'xlarge';
   imageWrapperWidth?: string;
 }
 
@@ -56,7 +56,8 @@ export function ServiceCard({
     small: compact ? "h-32" : featured ? "h-48 lg:h-full" : "h-40 sm:h-48",
     medium: compact ? "h-48" : featured ? "h-80 lg:h-full" : "h-64 sm:h-80",
     large: compact ? "h-64" : featured ? "h-96 lg:h-full" : "h-80 sm:h-96",
-  };
+    xlarge: compact ? "h-80" : featured ? "h-[34rem] lg:h-full" : "h-96 sm:h-[36rem]",
+  } as const;
 
   const defaultImageHeight = imageSizeMap[imageSize];
   const imageHeight = horizontal ? "h-64 lg:h-auto lg:min-h-[24rem]" : defaultImageHeight;

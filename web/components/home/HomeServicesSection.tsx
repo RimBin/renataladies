@@ -82,7 +82,8 @@ export default function HomeServicesSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <ServiceCard key={service.title} {...service} />
+            // Use new xlarge size so images are even taller on mobile viewports
+            <ServiceCard key={service.title} {...service} imageSize="xlarge" />
           ))}
         </div>
       </div>
