@@ -18,7 +18,7 @@ const services = [
   },
   {
     tag: { text: 'PDF', color: 'pdf' as const },
-  imageSrc: '/images/services/consultation.png',
+    imageSrc: '/images/services/mityba.jpg',
     imageFit: 'cover' as const,
     title: 'Mitybos planai',
     description: 'Valgyk skaniai ir vis tiek siek svorio mažinimo tikslo – planas pritaikytas asmeniškai.',
@@ -32,24 +32,9 @@ const services = [
     buttonHref: '/mitybos-planai',
   },
   {
-    tag: { text: 'VIP', color: 'vip' as const },
-    imageSrc: '/images/services/vip.png',
-    imageFit: 'contain' as const,
-    title: 'Asmeninė priežiūra',
-    description: 'Individualios online konsultacijos, nuolatinis palaikymas ir korekcijos.',
-    features: [
-      'Asmeninis 1:1 dėmesys užtikrina, kad kiekvienas klientas gautų tinkamą palaikymą.',
-      'Savaitiniai patikrinimai ir korekcijos.',
-      'Prioritetinis atsakymų laikas (VIP).',
-    ],
-    price: 'Nuo 99€ / mėn.',
-    buttonText: 'Rezervuoti vietą',
-    buttonHref: '/konsultacijos#rezervacija',
-  },
-  {
     tag: { text: '1:1', color: 'oneoff' as const },
-    imageSrc: '/images/services/consultation.png',
-    imageFit: 'contain' as const,
+    imageSrc: '/images/services/konsultacija.jpg',
+    imageFit: 'cover' as const,
     title: 'Vienkartinė konsultacija',
     description: '60–90 min. susitikimas konkrečiam klausimui – gauk aiškų veiksmų planą po pokalbio.',
     features: [
@@ -60,6 +45,21 @@ const services = [
     price: '29€ / kartą',
     buttonText: 'Rezervuoti vietą',
     buttonHref: '/konsultacijos',
+  },
+  {
+    tag: { text: 'VIP', color: 'vip' as const },
+    imageSrc: '/images/services/prieziura.jpg',
+    imageFit: 'cover' as const,
+    title: 'Asmeninė priežiūra',
+    description: 'Individualios online konsultacijos, nuolatinis palaikymas ir korekcijos.',
+    features: [
+      'Asmeninis 1:1 dėmesys užtikrina, kad kiekvienas klientas gautų tinkamą palaikymą.',
+      'Savaitiniai patikrinimai ir korekcijos.',
+      'Prioritetinis atsakymų laikas (VIP).',
+    ],
+    price: 'Nuo 99€ / mėn.',
+    buttonText: 'Rezervuoti vietą',
+    buttonHref: '/konsultacijos#rezervacija',
   },
 ];
 
@@ -80,7 +80,7 @@ export default function HomeServicesSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.title} {...service} />
           ))}

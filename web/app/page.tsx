@@ -7,6 +7,7 @@ import WhyItWorks from '@/components/home/WhyItWorks'
 import ProblemSolution from '@/components/home/ProblemSolution'
 import HomeServicesSection from '@/components/home/HomeServicesSection'
 import HowItWorks from '@/components/home/HowItWorks'
+import PremiumPlansSection from '@/components/home/PremiumPlansSection'
 import FAQ from '@/components/FAQ'
 import FinalCTA from '@/components/home/FinalCTA'
 import AvatarStack from '@/components/ui/AvatarStack'
@@ -40,11 +41,15 @@ export default function Home() {
 
       <HomeServicesSection />
 
+      <div id="premium-plans">
+        <PremiumPlansSection />
+      </div>
+
       <HowItWorks />
 
-      <WhyItWorks />
-
       <AboutRenata />
+
+      <WhyItWorks />
 
       <FAQ />
 

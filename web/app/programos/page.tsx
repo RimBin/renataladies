@@ -71,7 +71,7 @@ export default function ProgramsPage() {
       {/* Programs Grid */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-6 py-10">
         {filteredPrograms.length > 0 ? (
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredPrograms.map((program) => (
               <ProgramCard key={program.id} program={program} />
             ))}
