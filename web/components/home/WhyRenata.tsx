@@ -1,23 +1,12 @@
 import Image from "next/image";
 import Reveal from "../ui/Reveal";
+import { Lightbulb, Heart, Handshake } from 'lucide-react'
 
 export default function WhyRenata() {
   const features = [
-    {
-      icon: "💡",
-      title: "Mokslu pagrįsta",
-      desc: "Jokių mitų ar trumpalaikių madų. Tik patikrinti metodai, kurie duoda ilgalaikius rezultatus ir gerina sveikatą.",
-    },
-    {
-      icon: "❤️",
-      title: "Sukurta moteriai",
-      desc: "Sistema atsižvelgia į moters kūno ypatumus, hormonų svyravimus ir gyvenimo būdo poreikius.",
-    },
-    {
-      icon: "🤝",
-      title: "Asmeninis ryšys",
-      desc: "Tai ne tik planai, bet ir nuolatinis mano palaikymas, motyvacija ir atsakymai į visus klausimus.",
-    },
+    { icon: Lightbulb, title: 'Mokslu pagrįsta', desc: 'Jokių mitų ar trumpalaikių madų. Tik patikrinti metodai, kurie duoda ilgalaikius rezultatus ir gerina sveikatą.' },
+    { icon: Heart, title: 'Sukurta moteriai', desc: 'Sistema atsižvelgia į moters kūno ypatumus, hormonų svyravimus ir gyvenimo būdo poreikius.' },
+    { icon: Handshake, title: 'Asmeninis ryšys', desc: 'Tai ne tik planai, bet ir nuolatinis mano palaikymas, motyvacija ir atsakymai į visus klausimus.' },
   ];
 
   return (
@@ -37,7 +26,7 @@ export default function WhyRenata() {
               {features.map((feature, index) => (
                 <Reveal key={index} delay={0.1 * (index + 1)}>
                   <div className="flex items-start gap-4">
-                    <span className="text-3xl mt-1">{feature.icon}</span>
+                    <span className="mt-1">{(() => { const Icon = feature.icon; return <Icon className="w-7 h-7 text-rlPink" /> })()}</span>
                     <div>
                       <h3 className="font-semibold text-xl text-neutral-800">{feature.title}</h3>
                       <p className="text-neutral-600 mt-1">{feature.desc}</p>

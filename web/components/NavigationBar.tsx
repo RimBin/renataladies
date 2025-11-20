@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { EtCircleArrowUpRightIcon, BagIcon, WomanIcon } from '@/components/ui/icons'
 import { useCart } from '@/components/CartProvider'
+import { GradientButton } from '@/components/ui/GradientButton'
 
 export default function NavigationBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -107,14 +108,29 @@ export default function NavigationBar() {
       </div>
       
       <nav className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-full max-w-[1440px] bg-white/70 backdrop-blur-lg shadow-lg border-b border-white/40 rounded-b-3xl px-4 md:px-6 py-2.5 md:py-3 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/renata%20ladies%20logotipas.svg" alt="Renata Ladies" className="h-12 md:h-14 w-auto" />
-      </Link>
-      
-      {/* Desktop Navigation */}
-      <div className="hidden xl:flex items-center gap-1">
+        {/* Mobile menu toggle - left (visible on mobile only) */}
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="xl:hidden p-2 rounded-full hover:bg-neutral-100"
+          aria-label="Menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
+            {mobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+        
+        {/* Logo - Centered on mobile, left on desktop */}
+        <Link href="/" className="xl:flex-shrink-0 absolute xl:relative left-1/2 xl:left-auto -translate-x-1/2 xl:translate-x-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/renata%20ladies%20logotipas.svg" alt="Renata Ladies" className="h-12 md:h-14 w-auto" />
+        </Link>
+        
+        {/* Desktop Navigation - Left side (after logo) */}
+        <div className="hidden xl:flex items-center gap-1">
         {/* Primary menu */}
         <ul className="flex items-center text-sm font-medium">
           {primaryMenu.map((item) => (
@@ -239,7 +255,7 @@ export default function NavigationBar() {
         </ul>
       </div>
       
-      {/* Actions */}
+      {/* Actions - Right side */}
       <div className="flex items-center gap-1">
         {/* Account */}
         <Link 
@@ -257,14 +273,18 @@ export default function NavigationBar() {
           <span className="hidden xl:inline text-sm">{userName}</span>
         </Link>
         
-        {/* CTA */}
-        <Link 
-          href="/mitybos-planai" 
-          className="bg-[linear-gradient(90deg,#AB57F4,#F28ACD)] text-white px-4 md:px-5 py-2 rounded-full font-semibold text-sm hover:opacity-90 transition inline-flex items-center gap-1.5"
+        {/* CTA Button - Desktop only */}
+        <GradientButton
+          as="a"
+          href="#paslaugos"
+          withArrow
+          icon="et-circle-cutout"
+          iconHover="slide-right"
+          className="hidden xl:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold justify-center"
         >
           Rinkis savo kelią
-          <EtCircleArrowUpRightIcon className="w-4 h-4 text-rlText" />
-        </Link>
+        </GradientButton>
+        
         {/* Cart */}
         <button 
           onClick={toggleCart}
@@ -279,20 +299,6 @@ export default function NavigationBar() {
           )}
         </button>
         
-  {/* Mobile menu toggle */}
-        <button 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="xl:hidden p-2 rounded-full hover:bg-neutral-100"
-          aria-label="Menu"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
       </div>
       
       {/* Mobile menu */}

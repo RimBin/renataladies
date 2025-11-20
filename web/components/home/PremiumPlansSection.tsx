@@ -1,38 +1,16 @@
 "use client"
 import { GradientButton } from '@/components/ui/GradientButton'
 import { useState } from 'react'
+import { Film, UtensilsCrossed, Pill, BookOpen, MessageCircle, BarChart2 } from 'lucide-react'
+import Reveal from '@/components/ui/Reveal'
 
 const PREMIUM_FEATURES = [
-  {
-    icon: '🎥',
-    title: 'Visi video',
-    description: 'Neribota prieiga prie visų treniruočių video bibliotekos – jėga, cardio, yoga, tempo',
-  },
-  {
-    icon: '🍽️',
-    title: 'Mitybos planas + atnaujinimai',
-    description: 'Individualus mitybos planas su mėnesiniais atnaujinimais ir pritaikymais',
-  },
-  {
-    icon: '💊',
-    title: 'Nuolaidos papildams',
-    description: '15% nuolaida visoms maisto papildų rekomendacijoms',
-  },
-  {
-    icon: '📚',
-    title: 'Ekskluzyvus turinys',
-    description: 'Prieiga prie specialių programų, iššūkių ir e-knygų',
-  },
-  {
-    icon: '💬',
-    title: 'Prioritetinė pagalba',
-    description: 'Greitas atsakymas į klausimus ir asmeninė konsultacija kas mėnesį',
-  },
-  {
-    icon: '📊',
-    title: 'Pažangos stebėjimas',
-    description: 'Išsamūs įrankiai tikslams ir rezultatams sekti',
-  },
+  { icon: Film, title: 'Visi video', description: 'Neribota prieiga prie visų treniruočių video bibliotekos – jėga, cardio, yoga, tempo' },
+  { icon: UtensilsCrossed, title: 'Mitybos planas + atnaujinimai', description: 'Individualus mitybos planas su mėnesiniais atnaujinimais ir pritaikymais' },
+  { icon: Pill, title: 'Nuolaidos papildams', description: '15% nuolaida visoms maisto papildų rekomendacijoms' },
+  { icon: BookOpen, title: 'Ekskluzyvus turinys', description: 'Prieiga prie specialių programų, iššūkių ir e-knygų' },
+  { icon: MessageCircle, title: 'Prioritetinė pagalba', description: 'Greitas atsakymas į klausimus ir asmeninė konsultacija kas mėnesį' },
+  { icon: BarChart2, title: 'Pažangos stebėjimas', description: 'Išsamūs įrankiai tikslams ir rezultatams sekti' },
 ]
 
 const PLANS = [
@@ -78,40 +56,49 @@ export default function PremiumPlansSection() {
     <section className="py-16 sm:py-24 bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50">
       <div className="max-w-[1440px] mx-auto px-4 md:px-6">
         {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-end mb-12">
-          <div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText mb-0">
-              <span className="gradient-text">Premium</span> narystė
-            </h2>
+        <Reveal>
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-end mb-12">
+            <div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText mb-0 uppercase">
+                <span className="gradient-text">Premium</span> narystė
+              </h2>
+            </div>
+            <div>
+              <p className="text-lg text-neutral-600">
+                Gauk viską, ko reikia transformacijai – treniruočių, mityba, pagalba ir bendruomenė vienoje vietoje
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="text-lg text-neutral-600">
-              Gauk viską, ko reikia transformacijai – treniruotės, mityba, pagalba ir bendruomenė vienoje vietoje
-            </p>
-          </div>
-        </div>
+        </Reveal>
 
         {/* Features Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {PREMIUM_FEATURES.map((feature, idx) => (
-            <div 
-              key={idx}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition"
-            >
-              <div className="text-4xl mb-3">{feature.icon}</div>
-              <h3 className="font-bold text-lg text-rlText mb-2">{feature.title}</h3>
-              <p className="text-sm text-neutral-600">{feature.description}</p>
-            </div>
-          ))}
+          {PREMIUM_FEATURES.map((feature, idx) => {
+            const IconComponent = feature.icon;
+            return (
+              <Reveal key={idx} delay={0.1 * (idx + 1)}>
+                <div 
+                  className="p-8 rounded-3xl border border-transparent bg-gradient-to-b from-neutral-50 to-neutral-100/80 shadow-[0_1px_2px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.07)] hover:border-neutral-200/60 transition-all duration-300 h-full flex flex-col group hover:-translate-y-1"
+                >
+                  <div className="w-12 h-12 text-rlPink mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-md">
+                    <IconComponent className="w-full h-full" />
+                  </div>
+                  <h3 className="text-xl font-bold text-rlText mb-2">{feature.title}</h3>
+                  <p className="text-neutral-600 text-sm flex-grow">{feature.description}</p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
 
         {/* Pricing Cards */}
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
+        <Reveal delay={0.7}>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6">
             {PLANS.map((plan) => (
               <div
                 key={plan.id}
-                className={`relative bg-white rounded-2xl p-6 shadow transition-all hover:shadow-xl ${
+                className={`relative bg-white rounded-2xl p-6 shadow transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${
                   selectedPlan === plan.id ? 'ring-2 ring-[#F28ACD]' : ''
                 } ${plan.popular ? 'md:-mt-4 md:pb-10' : ''}`}
               >
@@ -151,12 +138,14 @@ export default function PremiumPlansSection() {
                 </button>
               </div>
             ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Trust Section */}
-        <div className="mt-12 text-center">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-neutral-600">
+        <Reveal delay={0.9}>
+          <div className="mt-12 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-neutral-600">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -176,7 +165,8 @@ export default function PremiumPlansSection() {
               <span>Saugus mokėjimas</span>
             </div>
           </div>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

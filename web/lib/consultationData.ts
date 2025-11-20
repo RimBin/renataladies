@@ -1,4 +1,4 @@
-export type ConsultationType = {
+﻿export type ConsultationType = {
   id: string
   title: string
   duration: string
@@ -16,7 +16,7 @@ export const CONSULTATIONS: ConsultationType[] = [
     title: 'Pradinė konsultacija',
     duration: '60 min',
     price: '49 €',
-    description: 'Pirmasis žingsnis į sveikesnį gyvenimą. Kartu aptarsime tavo tikslus, įpročius ir sudarysime veiksmų planą.',
+    description: 'Pirmasis žingsnis į sveikesnį gyvenimą. Kartu aptarsime tavo tikslus, išpročius ir sudarysime veiksmų planą.',
     includes: [
       'Išsamus pokalbis apie tavo tikslus',
       'Dabartinės mitybos įpročių analizė',
@@ -28,9 +28,9 @@ export const CONSULTATIONS: ConsultationType[] = [
     bestFor: [
       'Pradedantiesiems',
       'Norintiems sužinoti apie savo kūną',
-      'Ieškant aiškaus plano',
+      'Ieškantiems aiškaus plano',
     ],
-    icon: '🎯',
+    icon: '📋',
   },
   {
     id: 'follow-up',
@@ -49,9 +49,9 @@ export const CONSULTATIONS: ConsultationType[] = [
     bestFor: [
       'Jau pradėjusiems programą',
       'Norintiems koreguoti planą',
-      'Ieškant motyvacijos',
+      'Ieškantiems motyvacijos',
     ],
-    icon: '📈',
+    icon: '⭐',
     popular: true,
   },
   {
@@ -69,11 +69,11 @@ export const CONSULTATIONS: ConsultationType[] = [
       'PDF meniu planas',
     ],
     bestFor: [
-      'Norintiems supaprastinti maitinimąsi',
-      'Ieškant įvairovės',
+      'Norintiems supaprastinti mitybą',
+      'Ieškantiems įvairovės',
       'Turintiems daug darbų',
     ],
-    icon: '🥗',
+    icon: '🍽️',
   },
   {
     id: 'express',
@@ -113,7 +113,7 @@ export const CONSULTATION_PROCESS = [
     step: 3,
     title: 'Video pokalbis',
     description: 'Susitinkame online per Zoom arba Google Meet - kur tau patogiau.',
-    icon: '💻',
+    icon: '🎥',
   },
   {
     step: 4,
@@ -126,7 +126,7 @@ export const CONSULTATION_PROCESS = [
 export const CONSULTATION_FAQ = [
   {
     question: 'Kaip vyksta konsultacija?',
-    answer: 'Visos konsultacijos vyksta online per video skambutį (Zoom/Google Meet). Tu gauni nuorodą prieš pat susitikimą.',
+    answer: 'Visos konsultacijos vyksta online per video skambučius (Zoom/Google Meet). Tu gauni nuorodą prieš pat susitikimą.',
   },
   {
     question: 'Ką reikia pasiruošti?',
@@ -134,7 +134,7 @@ export const CONSULTATION_FAQ = [
   },
   {
     question: 'Ar galiu perkelti rezervaciją?',
-    answer: 'Taip! Jei reikia perkelti, praneškite bent 24 val. prieš susitikimą ir surasime naują laiką.',
+    answer: 'Taip! Jei reikia perkelti, pranešk bent 24 val. prieš susitikimą ir surasime naują laiką.',
   },
   {
     question: 'Ar konsultacija tinka pradedantiesiems?',
@@ -142,7 +142,7 @@ export const CONSULTATION_FAQ = [
   },
   {
     question: 'Kiek laiko gaunu palaikymą po konsultacijos?',
-    answer: 'Po konsultacijos gauni 7 dienas email palaikymą - gali užduoti papildomus klausimus.',
+    answer: 'Po konsultacijos gauni 7 dienas el. pašto palaikymą - gali užduoti papildomus klausimus.',
   },
   {
     question: 'Ar gausiu individualų planą?',

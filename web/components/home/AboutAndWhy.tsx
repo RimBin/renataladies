@@ -40,13 +40,15 @@ export default function AboutRenata() {
 								</p>
 							</div>
 							<div className="mb-8">
-								<div className="relative w-full h-64 overflow-hidden rounded-3xl">
-									<Image
-										src="/images/hero/taurės.jpg"
-										alt="Renatos laimėtos taurės"
-										fill
-										className="object-cover object-[center_75%]"
-									/>
+								<div className="relative rounded-[40px] bg-[linear-gradient(140deg,#F28ACD_0%,#F5C6EC_45%,#F9E5F8_100%)] p-4">
+									<div className="relative w-full h-64 overflow-hidden rounded-[32px] bg-white shadow-[0_20px_35px_-20px_rgba(242,138,205,0.6)]">
+										<Image
+											src="/images/hero/taurės.jpg"
+											alt="Renatos laimėtos taurės"
+											fill
+											className="object-cover object-[center_75%]"
+										/>
+									</div>
 								</div>
 							</div>
 							<ul className="space-y-3 mb-8">
@@ -94,15 +96,17 @@ export default function AboutRenata() {
 							</div>
 							
 							{/* Small overlapping image */}
-							<div className="absolute -bottom-4 -right-4 w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.2)] border-4 border-white z-10 bg-gradient-to-br from-pink-100 to-purple-100">
-								<Image
-									src="/images/about/7360.jpeg"
-									alt="Renata Ladies"
-									fill
-									className="object-cover object-center"
-									sizes="160px"
-									quality={90}
-								/>
+							<div className="absolute -bottom-4 -right-4 w-32 h-32 sm:w-40 sm:h-40 rounded-[28px] overflow-hidden z-10 bg-[linear-gradient(140deg,#F28ACD_0%,#F5C6EC_45%,#F9E5F8_100%)] p-2">
+								<div className="w-full h-full overflow-hidden rounded-[22px] bg-white shadow-[0_12px_32px_rgba(0,0,0,0.2)]">
+									<Image
+										src="/images/about/7360.jpeg"
+										alt="Renata Ladies"
+										fill
+										className="object-cover object-center"
+										sizes="160px"
+										quality={90}
+									/>
+								</div>
 							</div>
 						</div>
 					</Reveal>

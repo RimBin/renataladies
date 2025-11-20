@@ -15,10 +15,10 @@ import { GradientButton } from '@/components/ui/GradientButton'
 
 export default function PlanCard({ p, onPreview }: { p: Plan; onPreview: (p: Plan) => void }) {
   return (
-    <div className="overflow-hidden rounded-2xl bg-white shadow hover:shadow-xl transition">
+    <div className="group relative overflow-hidden rounded-2xl bg-white shadow-[0_4px_12px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(242,138,205,0.35)]">
       <div className="relative aspect-[4/3]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.thumb} alt={p.title} className="w-full h-full object-cover" />
+        <img src={p.thumb} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         <div className="absolute left-3 top-3 flex gap-2">
           <span className="px-2 py-1 text-xs rounded-full bg-black/70 text-white">{p.goal}</span>
           <span className="px-2 py-1 text-xs rounded-full bg-black/70 text-white">{p.diet}</span>

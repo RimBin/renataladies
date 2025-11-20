@@ -2,7 +2,9 @@
 
 import { useState } from 'react'
 import { Calendar, Clock, Check, X, ChevronLeft, ChevronRight, User, Mail, Phone, MessageSquare } from 'lucide-react'
+import { consultationIcon } from '@/lib/iconMaps'
 import { CONSULTATIONS } from '@/lib/consultationData'
+import { GradientButton } from './ui/GradientButton'
 
 type BookingStep = 'type' | 'datetime' | 'details' | 'payment'
 
@@ -30,7 +32,7 @@ const BOOKED_SLOTS: Record<string, string[]> = {
 }
 
 const STEP_ORDER: BookingStep[] = ['type', 'datetime', 'details', 'payment']
-const STEP_LABELS = ['Tipas', 'Data & Laikas', 'Duomenys', 'Mokėjimas'] as const
+const STEP_LABELS = ['Tipas', 'Laikas ir data', 'Duomenys', 'Mokėjimas'] as const
 
 export default function ConsultationBooking() {
   const [step, setStep] = useState<BookingStep>('type')
@@ -183,15 +185,15 @@ export default function ConsultationBooking() {
             return (
               <div key={s} className="flex flex-col items-center flex-1 relative z-10">
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition ${
+                  className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition text-center px-2 ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white'
+                      ? 'bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white text-[11px] leading-tight'
                       : isCompleted
                       ? 'bg-green-500 text-white'
                       : 'bg-neutral-200 text-neutral-500'
                   }`}
                 >
-                  {isCompleted ? <Check className="w-5 h-5" /> : idx + 1}
+                  {isCompleted ? <Check className="w-5 h-5" /> : isActive ? STEP_LABELS[idx] : idx + 1}
                 </div>
                 <span className="mt-2 text-xs text-neutral-600 text-center">{STEP_LABELS[idx]}</span>
               </div>
@@ -209,31 +211,34 @@ export default function ConsultationBooking() {
             <h2 className="text-2xl font-bold text-[#28262C] mb-6">
               Pasirink konsultacijos <span className="gradient-text">tipą</span>
             </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4 items-stretch">
               {CONSULTATIONS.map((consultation) => (
                 <button
                   key={consultation.id}
                   onClick={() => setBookingData({ ...bookingData, consultationType: consultation.id })}
-                  className={`text-left p-6 rounded-xl border-2 transition hover:border-[#F28ACD] ${
+                  className={`group text-left p-6 rounded-2xl border-2 transition-all duration-300 flex flex-col h-full shadow-[0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_-12px_rgba(242,138,205,0.35)] hover:-translate-y-1 ${
                     bookingData.consultationType === consultation.id
-                      ? 'border-[#F28ACD] bg-pink-50'
-                      : 'border-neutral-200'
+                      ? 'border-[#F28ACD] bg-gradient-to-b from-pink-50 to-white'
+                      : 'border-neutral-200/70 bg-white'
                   }`}
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <div className="text-3xl">{consultation.icon}</div>
+                    <div className="text-rlPink transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-md">
+                      {consultationIcon(consultation.id)}
+                    </div>
                     {bookingData.consultationType === consultation.id && (
                       <Check className="w-6 h-6 text-[#F28ACD]" />
                     )}
                   </div>
                   <h3 className="font-bold text-lg mb-2">{consultation.title}</h3>
-                  <p className="text-sm text-neutral-600 mb-3">{consultation.description}</p>
-                  <div className="flex items-center gap-4 text-sm">
+                  <p className="text-sm text-neutral-600 mb-3 flex-grow">{consultation.description}</p>
+                  <div className="h-3"></div>
+                  <div className="flex items-center gap-4 text-sm mt-auto">
                     <span className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
-                      {consultation.duration} min
+                      {consultation.duration}
                     </span>
-                    <span className="font-bold text-[#F28ACD]">{consultation.price} €</span>
+                    <span className="font-bold text-[#F28ACD]">{consultation.price}</span>
                   </div>
                 </button>
               ))}
@@ -452,7 +457,7 @@ export default function ConsultationBooking() {
                   </div>
                   <div className="flex items-center gap-2 text-sm text-neutral-600 mb-2">
                     <Clock className="w-4 h-4" />
-                    <span>{bookingData.timeSlot} val. ({selectedConsultation.duration} min)</span>
+                    <span>{bookingData.timeSlot} val. ({selectedConsultation.duration})</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-neutral-600">
                     <User className="w-4 h-4" />
@@ -470,7 +475,7 @@ export default function ConsultationBooking() {
 
             <div className="flex justify-between items-center p-4 bg-neutral-50 rounded-xl">
               <span className="font-semibold text-lg">Viso mokėti:</span>
-              <span className="font-bold text-2xl text-[#F28ACD]">{selectedConsultation.price} €</span>
+              <span className="font-bold text-2xl text-[#F28ACD]">{selectedConsultation.price}</span>
             </div>
           </div>
         )}
@@ -487,19 +492,27 @@ export default function ConsultationBooking() {
           )}
           
           {step !== 'payment' ? (
-            <button
+            <GradientButton
+              as="button"
               onClick={handleNextStep}
-              className="flex-1 px-6 py-3 rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white font-semibold hover:opacity-90 transition"
+              withArrow
+              icon="et-circle-cutout"
+              iconHover="slide-right"
+              className="flex-1 justify-center text-base font-semibold py-3"
             >
               Toliau
-            </button>
+            </GradientButton>
           ) : (
-            <button
+            <GradientButton
+              as="button"
               onClick={handleSubmit}
-              className="flex-1 px-6 py-3 rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white font-semibold hover:opacity-90 transition"
+              withArrow
+              icon="et-circle-cutout"
+              iconHover="slide-right"
+              className="flex-1 justify-center text-base font-semibold py-3"
             >
               Pereiti prie mokėjimo
-            </button>
+            </GradientButton>
           )}
         </div>
       </div>

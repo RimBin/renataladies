@@ -17,10 +17,20 @@ export default function ConsultationsPage() {
                 Asmeninės <span className="gradient-text">konsultacijos</span> – individualus planas tavo tikslams
               </h1>
             </div>
-            <div>
+            <div className="space-y-4">
               <p className="text-lg text-neutral-600">
                 1:1 pokalbis su manimi, kur kartu aptarsime tavo tikslus, sudėliosime planą ir atsakysiu į visus klausimus.
               </p>
+              <GradientButton
+                as="a"
+                href="#rezervacija"
+                withArrow
+                icon="et-circle-cutout"
+                iconHover="slide-right"
+                className="inline-flex items-center justify-center text-base font-semibold px-6 py-3"
+              >
+                Rezervuoti konsultaciją
+              </GradientButton>
             </div>
           </div>
         </div>

@@ -201,7 +201,7 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
                 </div>
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h4 className="font-bold text-lg gradient-text mb-1">Premium narystė</h4>
+                    <h4 className="font-bold text-lg gradient-text mb-1 uppercase">Premium narystė</h4>
                     <p className="text-sm text-neutral-600">Visi video + mitybos planas + daugiau</p>
                   </div>
                   <div className="text-right">

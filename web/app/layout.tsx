@@ -7,8 +7,9 @@ import { Providers } from '@/components/Providers'
 import HideWhenEmbedded from '@/components/HideWhenEmbedded'
 import AppMain from '@/components/AppMain'
 import FixLinksWhenEmbedded from '@/components/FixLinksWhenEmbedded'
+import ScrollProgress from '@/components/ui/ScrollProgress'
 
-const outfit = Outfit({ subsets: ['latin'] })
+const outfit = Outfit({ subsets: ['latin', 'latin-ext'] })
 
 export const metadata: Metadata = {
   title: 'Renataladies Store',
@@ -19,7 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   
   return (
     <html lang="lt">
+      <head>
+        <meta charSet="utf-8" />
+      </head>
       <body className={`${outfit.className} min-h-screen flex flex-col`}>
+        <ScrollProgress />
         <Providers>
           <FixLinksWhenEmbedded />
           <HideWhenEmbedded>

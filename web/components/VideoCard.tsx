@@ -5,7 +5,7 @@ export default function VideoCard({ video, onClick }: { video: Video; onClick: (
   return (
     <div 
       onClick={() => onClick(video)} 
-      className="group overflow-hidden rounded-2xl bg-white shadow hover:shadow-xl transition cursor-pointer"
+      className="group overflow-hidden rounded-2xl bg-white shadow-[0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_-12px_rgba(242,138,205,0.35)] transition-all duration-300 hover:-translate-y-1 cursor-pointer"
     >
       <div className="relative aspect-video overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -73,42 +73,47 @@ export function ServiceCard({
     : 'relative w-full';
 
   return (
-    <div className={cardClasses}>
-      <div className={`${imageWrapperClasses} ${imageHeight} overflow-hidden bg-white flex items-center justify-center relative`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={imageSrc}
-          alt={title}
-          className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${imageObjectClass}`}
-        />
-        <span
-          className={`absolute top-4 left-4 px-2.5 py-1 text-xs font-semibold rounded-full ${tagColors[tag.color]} z-10`}
-        >
-          {tag.text}
-        </span>
-      </div>
-      <div className={`${padding} flex flex-col flex-grow ${horizontal ? 'w-full lg:flex-1' : ''}`}>
-        <h3 className={`${titleSize} font-bold text-rlText mb-2`}>{title}</h3>
-        <p className="text-neutral-600 mb-4 sm:mb-5 text-sm sm:text-base">{description}</p>
-        {!compact && (
-          <ul className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6 text-neutral-700 text-sm">
-            {features.map((feature, index) => (
-              <li key={index} className="flex items-start gap-2.5">
-                <svg className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-        <div className="mt-auto">
-          <div className="mb-4 sm:mb-5">
-            <span className={`${featured ? 'text-3xl sm:text-4xl' : 'text-2xl sm:text-3xl'} font-bold text-rlText`}>{price}</span>
+    <div className="group h-full cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
+      <div className="relative rounded-[40px] bg-[linear-gradient(140deg,#F28ACD_0%,#F5C6EC_45%,#F9E5F8_100%)] p-4 transition-all duration-300 group-hover:shadow-[0_8px_20px_rgba(242,138,205,0.28)] h-full">
+        <div className={`${cardClasses} rounded-[32px] shadow-[0_20px_35px_-20px_rgba(242,138,205,0.6)] transition-all duration-300 group-hover:rounded-[24px]`}>
+          <div className={`${imageWrapperClasses} ${imageHeight} overflow-hidden bg-white flex items-center justify-center relative`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={imageSrc}
+              alt={title}
+              className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${imageObjectClass}`}
+            />
+            <span
+              className={`absolute top-4 left-4 px-2.5 py-1 text-xs font-semibold rounded-full ${tagColors[tag.color]} z-10`}
+            >
+              {tag.text}
+            </span>
           </div>
-          <GradientButton as="a" href={buttonHref} withArrow icon="et-circle-cutout" iconHover="slide-right" className="w-full justify-center text-sm sm:text-base font-semibold py-2.5 sm:py-3">
-            {buttonText}
-          </GradientButton>
+          <div className={`${padding} flex flex-col ${horizontal ? 'w-full lg:flex-1' : ''} h-full`}>
+            <h3 className={`${titleSize} font-bold text-rlText mb-2`}>{title}</h3>
+            <p className="text-neutral-600 mb-4 sm:mb-5 text-sm sm:text-base">{description}</p>
+            <div className="h-4"></div>
+            {!compact && (
+              <ul className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6 text-neutral-700 text-sm flex-grow">{
+                {features.map((feature, index) => (
+                  <li key={index} className="flex items-start gap-2.5">
+                    <svg className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="mt-auto flex-shrink-0">
+              <div className="mb-4 sm:mb-5">
+                <span className={`${featured ? 'text-3xl sm:text-4xl' : 'text-2xl sm:text-3xl'} font-bold text-rlText`}>{price}</span>
+              </div>
+              <GradientButton as="a" href={buttonHref} withArrow icon="et-circle-cutout" iconHover="slide-right" className="w-full justify-center text-sm sm:text-base font-semibold py-2.5 sm:py-3">
+                {buttonText}
+              </GradientButton>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -54,40 +54,48 @@ export default function StoriesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="group bg-white rounded-2xl border border-neutral-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden">
-              <button
-                type="button"
-                onClick={() => setActiveVideo(testimonial.videoUrl)}
-                className="block relative aspect-video w-full"
-                aria-label={`Peržiūrėti ${testimonial.name} vaizdo atsiliepimą`}
-              >
-                <Image
-                  src={testimonial.videoThumbnail}
-                  alt={`Atsiliepimas iš ${testimonial.name}`}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="w-16 h-16 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-md">
-                    <svg className="w-8 h-8 text-rlText" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                    </svg>
+            <div key={testimonial.id} className="group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
+              <div className="relative rounded-[40px] bg-[linear-gradient(140deg,#F28ACD_0%,#F5C6EC_45%,#F9E5F8_100%)] p-4 transition-all duration-300 group-hover:shadow-[0_12px_32px_rgba(242,138,205,0.4)]">
+                <div className="bg-white rounded-[32px] overflow-hidden shadow-[0_20px_35px_-20px_rgba(242,138,205,0.6)]">
+                  <button
+                    type="button"
+                    onClick={() => setActiveVideo(testimonial.videoUrl)}
+                    className="block relative w-full h-48 md:h-auto md:aspect-video"
+                    aria-label={`Peržiūrėti ${testimonial.name} vaizdo atsiliepimą`}
+                  >
+                    <div className="relative w-full h-full overflow-hidden transition-all duration-300 group-hover:rounded-[24px]">
+                      <Image
+                        src={testimonial.videoThumbnail}
+                        alt={`Atsiliepimas iš ${testimonial.name}`}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    </div>
+
+                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <div className="w-16 h-16 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-md">
+                        <svg className="w-8 h-8 text-rlText" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-sm font-semibold text-rlText shadow-sm z-10">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-pink-200 text-pink-600">
+                        <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M4.754 2.516A1.5 1.5 0 003 3.83v12.34a1.5 1.5 0 002.254 1.314l11.094-6.17a1.5 1.5 0 000-2.628L4.754 2.516z" />
+                        </svg>
+                      </span>
+                      <span>Video</span>
+                    </div>
+                  </button>
+
+                  <div className="p-6 transition-shadow duration-300">
+                    <p className="text-sm font-bold uppercase tracking-wider text-pink-500 mb-2">{testimonial.category}</p>
+                    <p className="text-neutral-700 mb-3 font-medium">{testimonial.text}</p>
+                    <p className="text-sm text-neutral-500 font-semibold">{testimonial.name}, {testimonial.age} m.</p>
                   </div>
                 </div>
-                <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-sm font-semibold text-rlText shadow-sm">
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-pink-200 text-pink-600">
-                    <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M4.754 2.516A1.5 1.5 0 003 3.83v12.34a1.5 1.5 0 002.254 1.314l11.094-6.17a1.5 1.5 0 000-2.628L4.754 2.516z" />
-                    </svg>
-                  </span>
-                  <span>Video</span>
-                </div>
-              </button>
-              <div className="p-6">
-                <p className="text-sm font-bold uppercase tracking-wider text-pink-500 mb-2">{testimonial.category}</p>
-                <p className="text-neutral-700 mb-3 font-medium">{testimonial.text}</p>
-                <p className="text-sm text-neutral-500 font-semibold">{testimonial.name}, {testimonial.age} m.</p>
               </div>
             </div>
           ))}

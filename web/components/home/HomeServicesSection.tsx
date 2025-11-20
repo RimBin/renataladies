@@ -1,4 +1,5 @@
-import { ServiceCard } from '@/components/ui/ServiceCard';
+import { ServiceCardVariant1 as ServiceCard } from '@/components/ui/ServiceCardVariant1';
+import Reveal from '@/components/ui/Reveal';
 
 const services = [
   {
@@ -67,23 +68,26 @@ export default function HomeServicesSection() {
   return (
     <section id="paslaugos" className="bg-neutral-50/70 scroll-mt-20">
       <div className="rl-section">
-        <div className="rl-section-header">
-          <div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText rl-section-title">
-              Pasirink savo <span className="gradient-text">kelią</span>
-            </h2>
+        <Reveal>
+          <div className="rl-section-header">
+            <div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText rl-section-title">
+                Pasirink savo <span className="gradient-text">kelią</span>
+              </h2>
+            </div>
+            <div>
+              <p className="rl-section-copy">
+                Nesvarbu, ar nori pradėti nuo vieno plano, ar gauti pilną VIP patirtį – čia rasi viską, ko reikia tavo tikslams pasiekti.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="rl-section-copy">
-              Nesvarbu, ar nori pradėti nuo vieno plano, ar gauti pilną VIP patirtį – čia rasi viską, ko reikia tavo tikslams pasiekti.
-            </p>
-          </div>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {services.map((service, index) => (
-            // Use new xlarge size so images are even taller on mobile viewports
-            <ServiceCard key={service.title} {...service} imageSize="xlarge" />
+            <Reveal key={service.title} delay={0.1 * (index + 1)}>
+              <ServiceCard {...service} imageSize="xlarge" horizontal />
+            </Reveal>
           ))}
         </div>
       </div>

@@ -2,6 +2,7 @@ interface AvatarStackProps {
   count: number
   size?: 'sm' | 'md' | 'lg'
 }
+import CountUp from '@/components/ui/CountUp'
 
 export default function AvatarStack({ count, size = 'md' }: AvatarStackProps) {
   // Placeholder avatars - later replace with real user photos
@@ -35,8 +36,8 @@ export default function AvatarStack({ count, size = 'md' }: AvatarStackProps) {
           </div>
         ))}
       </div>
-      <div className="text-sm font-semibold text-neutral-700">
-        <span className="gradient-text">{count}+</span> moterų
+      <div className="text-sm font-semibold text-neutral-700 rl-reveal rl-in">
+        <span className="gradient-text"><CountUp to={count} /></span> moterų
       </div>
     </div>
   )
