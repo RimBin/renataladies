@@ -94,7 +94,7 @@ export function ServiceCard({
             <p className="text-neutral-600 mb-4 sm:mb-5 text-sm sm:text-base">{description}</p>
             <div className="h-4"></div>
             {!compact && (
-              <ul className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6 text-neutral-700 text-sm flex-grow">{
+              <ul className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6 text-neutral-700 text-sm flex-grow">
                 {features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-2.5">
                     <svg className="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">

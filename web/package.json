@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --port 2005",
     "dev:2005": "next dev --port 2005",
-    "dev:clean": "rimraf .next && next dev --port 2005",
+    "dev:clean": "rm -rf .next && next dev --port 2005",
     "dev:turbo": "next dev --turbo --port 2005",
     "build": "next build",
     "start": "next start --port 2005",
