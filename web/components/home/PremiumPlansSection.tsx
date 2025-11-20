@@ -94,13 +94,13 @@ export default function PremiumPlansSection() {
         {/* Pricing Cards */}
         <Reveal delay={0.7}>
           <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-6 items-stretch">
+            <div className="grid md:grid-cols-3 gap-6 items-start">
             {PLANS.map((plan) => (
               <div
                 key={plan.id}
                 className={`relative bg-white rounded-2xl p-6 shadow transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col h-full ${
                   selectedPlan === plan.id ? 'ring-2 ring-[#F28ACD]' : ''
-                } ${plan.popular ? 'md:-mt-4 md:pb-10' : ''}`}
+                } ${plan.popular ? 'md:pt-8' : ''}`}
               >
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white text-xs font-bold rounded-full">
@@ -108,7 +108,7 @@ export default function PremiumPlansSection() {
                   </div>
                 )}
                 
-                <div className="text-center mb-6 flex-1 flex flex-col justify-start">
+                <div className="text-center mb-6 flex-grow">
                   <h3 className="font-bold text-xl text-rlText mb-2">{plan.name}</h3>
                   <div className="mb-2">
                     <span className="text-4xl font-bold gradient-text">{plan.price} €</span>
@@ -128,7 +128,7 @@ export default function PremiumPlansSection() {
                     setSelectedPlan(plan.id)
                     handleSubscribe(plan.id)
                   }}
-                  className={`mt-auto w-full rounded-full px-6 py-3 font-semibold transition flex-shrink-0 ${
+                  className={`w-full rounded-full px-6 py-3 font-semibold transition flex-shrink-0 ${
                     plan.popular
                       ? 'bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white hover:opacity-90'
                       : 'border-2 border-[#F28ACD] text-[#F28ACD] hover:bg-pink-50'
