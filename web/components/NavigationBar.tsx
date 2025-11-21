@@ -303,15 +303,15 @@ export default function NavigationBar() {
       
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md p-6 shadow-xl rounded-2xl mx-4 border border-gray-100 max-h-[70vh] overflow-y-auto">
-          <ul className="space-y-2 pb-4">
+        <div className="xl:hidden absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md p-4 sm:p-6 shadow-xl rounded-2xl mx-2 sm:mx-4 border border-gray-100 max-h-[80vh] overflow-y-auto">
+          <ul className="space-y-1.5 pb-4">
             {/* Primary menu - larger, bolder */}
             {primaryMenu.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-5 py-3 rounded-xl text-base font-semibold transition ${
+                  className={`block px-3 sm:px-5 py-2 sm:py-3 rounded-xl text-sm sm:text-base font-semibold transition ${
                     pathname === item.href
                       ? 'bg-[linear-gradient(90deg,#AB57F4,#F28ACD)] text-white shadow-md'
                       : 'hover:bg-purple-50 text-[#28262C]'
