@@ -303,8 +303,8 @@ export default function NavigationBar() {
       
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md p-6 shadow-xl rounded-2xl mx-4 border border-gray-100">
-          <ul className="space-y-2">
+        <div className="xl:hidden absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md p-6 shadow-xl rounded-2xl mx-4 border border-gray-100 max-h-[70vh] overflow-y-auto">
+          <ul className="space-y-2 pb-4">
             {/* Primary menu - larger, bolder */}
             {primaryMenu.map((item) => (
               <li key={item.href}>
