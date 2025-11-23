@@ -1,6 +1,4 @@
-import { GradientButton } from '@/components/ui/GradientButton'
 import MainHero from '@/components/SecondaryHero'
-import BenefitsHero from '@/components/Hero'
 import StoriesSection from '@/components/home/StoriesSection'
 import ImageCarousel from '@/components/home/ImageCarousel'
 import AboutRenata from '@/components/home/AboutAndWhy'
@@ -17,21 +15,23 @@ export default function Home() {
   return (
     <>
       <MainHero
-        title="PASIRUOŠUSI PRADĖTI?"
-        gradientWords={["Pasiruošusi"]}
-        subtitle="Tavo pokyčiai prasideda namuose – su mitybos ir treniruočių planais, pritaikytais specialiai moterims, kurios nori sulieknėti, sustiprėti ir jaustis nuostabiai"
+        title="AR PASIRUOŠUSI PRADĖTI?"
+        gradientWords={['PASIRUOŠUSI']}
+        subtitle="Tavo pokyčiai prasideda namuose su profesionalia fitneso trenere. Specialiai parengti mitybos ir treniruočių planai, pritaikyti moterims, kurios nori sulieknėti, suformuoti kūną, sustiprėti ir gerai jaustis."
         ctaText="Rinkis savo kelią"
         ctaHref="#paslaugos"
       >
         <div>
           <div className="mt-8 flex flex-col gap-y-3 text-sm text-neutral-700">
             {[
-              "Asmeninis palaikymas kiekviename žingsnyje",
-              "Sportuok namuose – jokių salių!",
-              "Aiškūs receptai ir porcijos"
+              'Asmeninis palaikymas kiekviename žingsnyje',
+              'Sportuok namuose – jokių salių!',
+              'Aiškūs receptai ir porcijos'
             ].map((bullet, index) => (
               <div key={index} className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full flex items-center justify-center bg-[#F6F6F8] text-[#AB57F4]">✓</span>
+                <span className="w-5 h-5 rounded-full flex items-center justify-center bg-[#F6F6F8] text-[#AB57F4]">
+                  ✓
+                </span>
                 <span>{bullet}</span>
               </div>
             ))}
@@ -42,30 +42,6 @@ export default function Home() {
           </div>
         </div>
       </MainHero>
-
-      {/* <BenefitsHero
-        title={"Tu gali daugiau,\nnei manai"}
-        gradientWords={["gali", "daugiau", "manai"]}
-        subtitle="Išsirink planą ar paslaugą ir žengk pirmą žingsnį pokyčių link jau šiandien"
-      >
-        <div className="mt-6 space-y-4">
-          <div className="flex flex-wrap gap-4 text-sm">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-neutral-200/50">
-              <span className="text-2xl">🎯</span>
-              <span className="font-semibold text-neutral-800">100% Online</span>
-            </div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-neutral-200/50">
-              <span className="text-2xl">⚡</span>
-              <span className="font-semibold text-neutral-800">Rezultatai per 4 sav.</span>
-            </div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-neutral-200/50">
-              <span className="text-2xl">💪</span>
-              <span className="font-semibold text-neutral-800">Be salės</span>
-            </div>
-          </div>
-          <AvatarStack count={1200} size="md" />
-        </div>
-      </BenefitsHero> */}
 
       <ProblemSolution />
 
@@ -91,4 +67,3 @@ export default function Home() {
     </>
   )
 }
-

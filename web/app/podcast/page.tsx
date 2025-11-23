@@ -9,7 +9,7 @@ export default function PodcastPage() {
           <div className="grid md:grid-cols-[3fr_2fr] gap-8 items-end">
             <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText mb-0">
-                Renata Ladies <span className="gradient-text">Podcast</span>
+                Renata Ladies<br/><span className="gradient-text">Podcast</span>
               </h1>
             </div>
             <div>

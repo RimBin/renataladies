@@ -51,12 +51,39 @@ export const PLANS = [
     samplePdf: '/samples/mityba-glutenfree.pdf',
     rating: 4.6,
   },
+  {
+    id: 'challenge-4weeks',
+    title: '4 savaičių mitybos Challenge',
+    goal: 'specialus',
+    diet: 'subalansuota',
+    days: 28,
+    kcal: 1700,
+    recipes: 80,
+    includes: ['Pasiruošk svarbioms šventėms', 'Kelionėms, vasarai ir t.t.', 'Pirkinių sąrašai', 'Variantai'],
+    thumb: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=95&w=2000&auto=format&fit=crop',
+    samplePdf: '/samples/mityba-challenge.pdf',
+    rating: 4.9,
+  },
+  {
+    id: 'detox-week',
+    title: 'Savaitės DETOX programa',
+    goal: 'specialus',
+    diet: 'detox',
+    days: 7,
+    kcal: 1500,
+    recipes: 28,
+    includes: ['Detoksinės sultys', 'Lengvi patiekalai', 'Pirkinių sąrašai', 'Wellness patarimai'],
+    thumb: 'https://images.unsplash.com/photo-1610348725531-843dff563e2c?q=95&w=2000&auto=format&fit=crop',
+    samplePdf: '/samples/mityba-detox.pdf',
+    rating: 4.7,
+  },
 ]
 
 export const GOALS = [
   { value: '', label: 'Visi tikslai' },
   { value: 'svorio mažinimas', label: 'Svorio mažinimas' },
   { value: 'raumenų auginimas', label: 'Raumenų auginimas' },
+  { value: 'specialus', label: 'Specialios programos' },
 ]
 
 export const DIETS = [
@@ -64,4 +91,5 @@ export const DIETS = [
   { value: 'subalansuota', label: 'Subalansuota' },
   { value: 'vegan', label: 'Augalinė (vegan)' },
   { value: 'be gliuteno', label: 'Be gliuteno' },
+  { value: 'detox', label: 'Detox' },
 ]

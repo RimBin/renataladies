@@ -277,11 +277,63 @@ export default function ApiePage() {
           </div>
 
           {/* Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-[1fr_1.5fr_1fr] gap-8 items-start">
+            {/* Left Column - Video */}
+            <div className="space-y-6">
+              {/* Video sekcija su gradient border */}
+              <div className="relative rounded-[32px] p-1 bg-gradient-to-br from-[#F28ACD] via-[#AB57F4] to-[#F28ACD]">
+                <div className="relative rounded-[28px] overflow-hidden bg-black aspect-[9/16] w-full">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/Video/Video.mov" type="video/quicktime" />
+                    <source src="/Video/Video.mov" type="video/mp4" />
+                    Jūsų naršyklė nepalaiko video.
+                  </video>
+                </div>
+              </div>
+            </div>
+
+            {/* Middle Column - Content */}
             <div className="space-y-6">
               <p className="text-base text-neutral-600 leading-relaxed">
                 Čia dalinuosi pagrindiniais etapais ir pasiekimais, kurie formavo mano patirtį bei bendruomenę. Leiskis į kelionę kartu su manimi.
               </p>
+
+              {/* Patirties statistika */}
+              <div className="bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 rounded-2xl p-6">
+                <h3 className="text-xl font-bold gradient-text mb-4 text-center">Mano kelionė</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white text-xs font-bold">✓</span>
+                    <span className="text-sm text-neutral-800">14 metų dailiojo čiuožimo patirties</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white text-xs font-bold">✓</span>
+                    <span className="text-sm text-neutral-800">20 metų fitneso patirties</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white text-xs font-bold">✓</span>
+                    <span className="text-sm text-neutral-800">18 metų treniravimo patirties</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white text-xs font-bold">✓</span>
+                    <span className="text-sm text-neutral-800">10 metų dalyvavimo varžybose</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white text-xs font-bold">✓</span>
+                    <span className="text-sm text-neutral-800">5 metai merginų ruošimo varžyboms (ne viena LT čempionė)</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white text-xs font-bold">✓</span>
+                    <span className="text-sm text-neutral-800">5 metai ir toliau – Renata Ladies įkūrimas</span>
+                  </div>
+                </div>
+              </div>
               
               {/* Mano misija sekcija */}
               <div className="bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 rounded-2xl p-6">
@@ -301,27 +353,9 @@ export default function ApiePage() {
                   bet ir dėl <strong>palaikymo, supratimo ir tikėjimo</strong>, kad jos sugeba!
                 </p>
               </div>
-              
-              <div className="flex flex-wrap gap-4">
-                <GradientButton
-                  as="a"
-                  href="/mitybos-planai"
-                  withArrow
-                  icon="et-circle-cutout"
-                  iconHover="slide-right"
-                  className="px-6 py-3 text-sm sm:text-base font-semibold"
-                >
-                  Peržiūrėti planus
-                </GradientButton>
-                <a
-                  href="/kontaktai"
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-[#28262C] px-6 py-3 text-sm sm:text-base font-semibold text-[#28262C] transition hover:bg-[#28262C] hover:text-white"
-                >
-                  Susisiekti
-                </a>
-              </div>
             </div>
 
+            {/* Right Column - Photo Card */}
             <div className="relative flex w-full justify-center">
               <div className="w-full max-w-sm rounded-[32px] border border-white/40 bg-white/70 p-6 shadow-[0_30px_80px_-40px_rgba(171,87,244,0.55)] backdrop-blur">
                 <div className="relative h-96 overflow-hidden rounded-[28px] bg-gradient-to-b from-pink-50 to-purple-50">
@@ -337,9 +371,28 @@ export default function ApiePage() {
                 <p className="mt-5 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#AB57F4]">
                   IFBB Elite Pro
                 </p>
-                <p className="mt-2 text-center text-sm text-neutral-600">
+                <p className="mt-2 text-center text-sm text-neutral-600 mb-6">
                   Trenerė, studijos įkūrėja ir moterų bendruomenės lyderė
                 </p>
+                
+                <div className="flex flex-col gap-3">
+                  <GradientButton
+                    as="a"
+                    href="/mitybos-planai"
+                    withArrow
+                    icon="et-circle-cutout"
+                    iconHover="slide-right"
+                    className="w-full justify-center px-6 py-3 text-sm font-semibold"
+                  >
+                    Peržiūrėti planus
+                  </GradientButton>
+                  <a
+                    href="/kontaktai"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#28262C] px-6 py-3 text-sm font-semibold text-[#28262C] transition hover:bg-[#28262C] hover:text-white"
+                  >
+                    Susisiekti
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -1,0 +1,93 @@
+export type ApparelItem = {
+  id: string
+  slug: string
+  title: string
+  category: string
+  description: string
+  benefits: string[]
+  price: string
+  image: string
+  longDescription: string
+  specs?: string[]
+}
+
+export const APPAREL_ITEMS: ApparelItem[] = [
+  {
+    id: 'leggings',
+    slug: 'auksto-liemens-tampres',
+    title: 'Aukšto liemens tamprės',
+    category: 'Tampres',
+    description: 'Skulptuojančios, squat-proof ir kvėpuojančios.',
+    longDescription:
+      'Itin elastingos tamprės su aukštu juosmeniu. Nepermatomos net gilaus pritūpimo metu, greitai džiūsta ir priglunda kaip antra oda.',
+    benefits: ['Neslysta juosmuo', 'Nepermatomos', 'Greitai džiūsta'],
+    specs: ['Sudėtis: 75% nailonas, 25% spandeksas', 'Skalbti 30°C', 'Spalvos: juoda, pilka, alyvinė'],
+    price: '39.99',
+    image: '/images/products/apparel/joggers.jpg'
+  },
+  {
+    id: 'sports-bra',
+    slug: 'sportine-liemenele',
+    title: 'Sportinė liemenėlė',
+    category: 'Liemenėlės',
+    description: 'Vidutinio intensyvumo palaikymas su nuimamais kaušeliais.',
+    longDescription:
+      'Kryžiuotos petnešos, nuimami kaušeliai ir kvėpuojantis audinys suteikia komfortą kardio ir jėgos treniruotėms.',
+    benefits: ['Kvėpuojantis audinys', 'Minkšti kaušeliai', 'Nespaudžia petnešos'],
+    specs: ['Sudėtis: 80% poliesteris, 20% elastanas', 'Vidutinio intensyvumo palaikymas'],
+    price: '24.99',
+    image: '/images/products/apparel/sports-bra.jpg'
+  },
+  {
+    id: 'hoodie',
+    slug: 'oversized-hoodie',
+    title: 'Oversized džemperis',
+    category: 'Viršutiniai',
+    description: 'Minkštas vidus, ilgesnis siluetas ir kangaroo kišenė.',
+    longDescription:
+      'Šiltas „oversized“ džemperis su kapišonu – puikus pasirinkimas apšilimui arba kelionei į/iš treniruotės.',
+    benefits: ['Šiltas vidus', 'Laisvas kritimas', 'Puikiai prieš/po treniruotės'],
+    specs: ['Sudėtis: 65% medvilnė, 35% poliesteris', 'Vidinis švelnus pūkelis'],
+    price: '44.99',
+    image: '/images/products/apparel/hoodie.jpg'
+  },
+  {
+    id: 'crop-tee',
+    slug: 'crop-topas',
+    title: 'Crop topas',
+    category: 'Viršutiniai',
+    description: 'Lengvas, greitai džiūstantis audinys kardio ir treniruotėms.',
+    longDescription:
+      'Trumpintas, laisvo kritimo topas iš drėgmę išgarinančio audinio. Tinka sluoksniuoti su sportine liemenėle.',
+    benefits: ['Kvėpuoja', 'Lengvas', 'Atsparus prakaitui'],
+    specs: ['Sudėtis: 88% poliesteris, 12% elastanas', 'Aukštesnė ventiliacija'],
+    price: '19.99',
+    image: '/images/products/apparel/crop-top.jpg'
+  },
+  {
+    id: 'joggers',
+    slug: 'jogger-kelnes',
+    title: 'Jogger kelnės',
+    category: 'Kelnės',
+    description: 'Tamprus audinys ir siaurėjantis modelis laisvalaikiui ir apšilimui.',
+    longDescription:
+      'Patogios jogger kelnės su siaurėjančiomis klešnėmis, tampriu juosmeniu ir šoninėmis kišenėmis.',
+    benefits: ['Tamprus audinys', 'Gilios kišenės', 'Patogus prigludimas'],
+    specs: ['Sudėtis: 60% medvilnė, 35% poliesteris, 5% elastanas', 'Elastinis juosmuo su raišteliu'],
+    price: '34.99',
+    image: '/images/products/apparel/joggers.jpg'
+  },
+  {
+    id: 'training-shorts',
+    slug: 'treniruociu-sortai',
+    title: 'Treniruočių šortai',
+    category: 'Šortai',
+    description: 'Lengvi, su vidinėmis tamprių kelnaitėmis stabilumui.',
+    longDescription:
+      'Dvigubos konstrukcijos šortai su vidinėmis tampriomis kelnaitėmis ir šoninėmis kišenėmis, kad būtum pasiruošusi kardio ar HIIT.',
+    benefits: ['Vidinės tamprės', 'Šoninės kišenės', 'Kvėpuojantys'],
+    specs: ['Sudėtis: 90% poliesteris, 10% elastanas', 'Vidinės tamprės: 80% nailonas, 20% elastanas'],
+    price: '22.99',
+    image: '/images/products/apparel/training-shorts.jpg'
+  }
+]

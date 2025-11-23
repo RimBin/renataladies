@@ -1,5 +1,5 @@
-import { ServiceCardVariant1 as ServiceCard } from '@/components/ui/ServiceCardVariant1';
-import Reveal from '@/components/ui/Reveal';
+import { ServiceCardVariant1 as ServiceCard } from '@/components/ui/ServiceCardVariant1'
+import Reveal from '@/components/ui/Reveal'
 
 const services = [
   {
@@ -9,13 +9,14 @@ const services = [
     title: 'Treniruočių programos',
     description: 'Sportuok namuose ar salėje – įrašai pritaikyti tiek pradedančiajai, tiek pažengusiai.',
     features: [
-      'Pasiekiami įrašai bet kada, visiems įrengimams.',
+      'Pasiekiami įrašai bet kada, visiems įrenginiams.',
       'Programos pritaikytos skirtingiems tikslams (sėdmenims, nugarai, pilvo presui).',
       'Motyvuojantys rezultatai ir progresas jau po kelių savaičių.',
+      'Individuali sporto programa.'
     ],
-    price: 'Nuo 29€',
+    price: 'Nuo 29 €',
     buttonText: 'Rinktis programą',
-    buttonHref: '/programos',
+    buttonHref: '/programos'
   },
   {
     tag: { text: 'PDF', color: 'pdf' as const },
@@ -27,10 +28,12 @@ const services = [
       'Valgyk skaniai ir vis tiek siek svorio mažinimo tikslo.',
       'Pajausi daugiau energijos ir lengvumo kasdien.',
       'Įgauk pasitikėjimo savimi, nes planas pritaikytas tau asmeniškai.',
+      '4 savaičių mitybos Challenge: pasiruošk šventėms, kelionėms, vasarai ir t. t.',
+      'Savaitės DETOX programa.'
     ],
-    price: 'Nuo 39€',
+    price: 'Nuo 39 €',
     buttonText: 'Gauti mitybos planą',
-    buttonHref: '/mitybos-planai',
+    buttonHref: '/mitybos-planai'
   },
   {
     tag: { text: '1:1', color: 'oneoff' as const },
@@ -41,11 +44,11 @@ const services = [
     features: [
       'Online vaizdo skambutis (Zoom/Meet).',
       'Aiškios rekomendacijos ir atsakymai.',
-      '7 dienų el. pašto palaikymas po konsultacijos.',
+      '7 dienų el. pašto palaikymas po konsultacijos.'
     ],
-    price: '29€ / kartą',
+    price: '29 € / kartą',
     buttonText: 'Rezervuoti vietą',
-    buttonHref: '/konsultacijos',
+    buttonHref: '/konsultacijos'
   },
   {
     tag: { text: 'VIP', color: 'vip' as const },
@@ -56,13 +59,13 @@ const services = [
     features: [
       'Asmeninis 1:1 dėmesys užtikrina, kad kiekvienas klientas gautų tinkamą palaikymą.',
       'Savaitiniai patikrinimai ir korekcijos.',
-      'Prioritetinis atsakymų laikas (VIP).',
+      'Prioritetinis atsakymų laikas (VIP).'
     ],
-    price: 'Nuo 99€ / mėn.',
+    price: 'Nuo 99 € / mėn.',
     buttonText: 'Rezervuoti vietą',
-    buttonHref: '/konsultacijos#rezervacija',
-  },
-];
+    buttonHref: '/konsultacijos#rezervacija'
+  }
+]
 
 export default function HomeServicesSection() {
   return (
@@ -77,7 +80,8 @@ export default function HomeServicesSection() {
             </div>
             <div>
               <p className="rl-section-copy">
-                Nesvarbu, ar nori pradėti nuo vieno plano, ar gauti pilną VIP patirtį – čia rasi viską, ko reikia tavo tikslams pasiekti.
+                Nesvarbu, ar nori pradėti nuo vieno plano, ar gauti pilną VIP patirtį – čia rasi viską, ko reikia tavo
+                tikslams pasiekti.
               </p>
             </div>
           </div>
@@ -92,5 +96,5 @@ export default function HomeServicesSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

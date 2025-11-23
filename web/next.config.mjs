@@ -32,11 +32,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/videos',
-        destination: '/treniruociu-video',
-        permanent: true,
-      },
-      {
         source: '/plans',
         destination: '/mitybos-planai',
         permanent: true,

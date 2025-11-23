@@ -3,11 +3,13 @@ import Reveal from '../ui/Reveal';
 import { GradientButton } from '../ui/GradientButton';
 
 const highlights = [
-	'Sertifikuota mitybos ir fitneso specialistė',
-	'IFBB PRO atletė',
-	'Lietuvos čempionė',
+	'18 metų patirties treniravimo srityje',
+	'Aukšto meistriškumo sporto specialistė',
+	'Profesionali fitneso atletė (IFBB PRO card)',
+	'Daugkartinė Lietuvos fitneso čempionė',
 	'Europos ir pasaulio čempionatų prizininkė',
-	'15+ metų patirtis',
+	'Renata Ladies moterų bendruomenės įkūrėja',
+	'NLP koučingo meistro lygis',
 ];
 
 export default function AboutRenata() {

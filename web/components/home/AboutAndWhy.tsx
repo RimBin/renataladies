@@ -3,11 +3,13 @@ import Reveal from '../ui/Reveal';
 import { GradientButton } from '../ui/GradientButton';
 
 const highlights = [
-	'Sertifikuota mitybos ir fitneso specialistė',
-	'IFBB PRO atletė',
-	'Lietuvos čempionė',
+	'18 metų patirties treniravimo srityje',
+	'Aukšto meistriškumo sporto specialistė',
+	'Profesionali fitneso atletė (IFBB PRO card)',
+	'Daugkartinė Lietuvos fitneso čempionė',
 	'Europos ir pasaulio čempionatų prizininkė',
-	'15+ metų patirtis',
+	'Renata Ladies moterų bendruomenės įkūrėja',
+	'NLP koučingo meistro lygis',
 ];
 
 export default function AboutRenata() {
@@ -85,10 +87,11 @@ export default function AboutRenata() {
 							<div className="relative rounded-[48px] bg-[linear-gradient(140deg,#F28ACD_0%,#F5C6EC_45%,#F9E5F8_100%)] p-5 sm:p-6 lg:p-8">
 								<div className="relative aspect-[4/5] overflow-hidden rounded-[36px] bg-white shadow-[0_20px_45px_-20px_rgba(242,138,205,0.6)]">
 									<Image
-										src="/images/about/Be pavadinimo (800 x 1000 piks.).jpg"
+										src="/images/about/renata-apie-mane.webp"
 										alt="Renata"
 										fill
 										priority
+										quality={95}
 										className="object-cover object-center"
 										sizes="(max-width: 1024px) 70vw, 520px"
 									/>
