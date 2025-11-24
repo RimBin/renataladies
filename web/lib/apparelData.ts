@@ -23,7 +23,7 @@ export const APPAREL_ITEMS: ApparelItem[] = [
     benefits: ['Neslysta juosmuo', 'Nepermatomos', 'Greitai džiūsta'],
     specs: ['Sudėtis: 75% nailonas, 25% spandeksas', 'Skalbti 30°C', 'Spalvos: juoda, pilka, alyvinė'],
     price: '39.99',
-    image: '/images/products/apparel/joggers.jpg'
+    image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&q=80'
   },
   {
     id: 'sports-bra',
@@ -36,7 +36,7 @@ export const APPAREL_ITEMS: ApparelItem[] = [
     benefits: ['Kvėpuojantis audinys', 'Minkšti kaušeliai', 'Nespaudžia petnešos'],
     specs: ['Sudėtis: 80% poliesteris, 20% elastanas', 'Vidutinio intensyvumo palaikymas'],
     price: '24.99',
-    image: '/images/products/apparel/sports-bra.jpg'
+    image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80'
   },
   {
     id: 'hoodie',
@@ -49,7 +49,7 @@ export const APPAREL_ITEMS: ApparelItem[] = [
     benefits: ['Šiltas vidus', 'Laisvas kritimas', 'Puikiai prieš/po treniruotės'],
     specs: ['Sudėtis: 65% medvilnė, 35% poliesteris', 'Vidinis švelnus pūkelis'],
     price: '44.99',
-    image: '/images/products/apparel/hoodie.jpg'
+    image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80'
   },
   {
     id: 'crop-tee',
@@ -62,7 +62,7 @@ export const APPAREL_ITEMS: ApparelItem[] = [
     benefits: ['Kvėpuoja', 'Lengvas', 'Atsparus prakaitui'],
     specs: ['Sudėtis: 88% poliesteris, 12% elastanas', 'Aukštesnė ventiliacija'],
     price: '19.99',
-    image: '/images/products/apparel/crop-top.jpg'
+    image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&q=80'
   },
   {
     id: 'joggers',
@@ -75,7 +75,7 @@ export const APPAREL_ITEMS: ApparelItem[] = [
     benefits: ['Tamprus audinys', 'Gilios kišenės', 'Patogus prigludimas'],
     specs: ['Sudėtis: 60% medvilnė, 35% poliesteris, 5% elastanas', 'Elastinis juosmuo su raišteliu'],
     price: '34.99',
-    image: '/images/products/apparel/joggers.jpg'
+    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80'
   },
   {
     id: 'training-shorts',
@@ -88,6 +88,6 @@ export const APPAREL_ITEMS: ApparelItem[] = [
     benefits: ['Vidinės tamprės', 'Šoninės kišenės', 'Kvėpuojantys'],
     specs: ['Sudėtis: 90% poliesteris, 10% elastanas', 'Vidinės tamprės: 80% nailonas, 20% elastanas'],
     price: '22.99',
-    image: '/images/products/apparel/training-shorts.jpg'
+    image: 'https://images.unsplash.com/photo-1520716963369-8b9e5d2d70ed?w=800&q=80'
   }
 ]

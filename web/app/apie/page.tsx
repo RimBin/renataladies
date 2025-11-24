@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -52,6 +52,7 @@ const ACHIEVEMENTS: Achievement[] = [
     isHighlight: true,
   },
 ]
+
 
 function AchievementItem({ achievement, index, total }: { achievement: Achievement; index: number; total: number }) {
   const isLeft = index % 2 === 0
@@ -263,34 +264,34 @@ export default function ApiePage() {
       <section className="relative overflow-hidden bg-white pt-24 md:pt-32 pb-12">
         <div className="max-w-[1440px] mx-auto px-4 md:px-6">
           {/* Header */}
-          <div className="grid gap-8 md:grid-cols-[3fr_2fr] items-end mb-12">
+          <div className="grid gap-6 md:gap-8 md:grid-cols-[3fr_2fr] items-end mb-8 md:mb-12">
             <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText mb-0 leading-tight">
-                Renata Marcinkutė — <span className="gradient-text whitespace-nowrap">Tavo kelionės vadovė</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-rlText mb-0 leading-tight">
+                Renata Marcinkutė — <span className="gradient-text">Tavo kelionės vadovė</span>
               </h1>
             </div>
             <div>
-              <p className="text-lg text-neutral-600">
+              <p className="text-base md:text-lg text-neutral-600">
                 Sveikatos ir fitneso trenerė, mitybos konsultantė ir motyvatorė, padedanti tūkstančiams moterų pasiekti tikslus ir atrasti save.
               </p>
             </div>
           </div>
 
           {/* Content Grid */}
-          <div className="grid lg:grid-cols-[1fr_1.5fr_1fr] gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr_1fr] gap-6 md:gap-8 items-start">
             {/* Left Column - Video */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:order-1">
               {/* Video sekcija su gradient border */}
-              <div className="relative rounded-[32px] p-1 bg-gradient-to-br from-[#F28ACD] via-[#AB57F4] to-[#F28ACD]">
-                <div className="relative rounded-[28px] overflow-hidden bg-black aspect-[9/16] w-full">
+              <div className="relative rounded-2xl md:rounded-[32px] p-1 bg-gradient-to-br from-[#F28ACD] via-[#AB57F4] to-[#F28ACD] max-w-sm mx-auto lg:max-w-none">
+                <div className="relative rounded-xl md:rounded-[28px] overflow-hidden bg-black aspect-[9/16] w-full">
                   <video
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     className="w-full h-full object-cover"
                   >
-                    <source src="/Video/Video.mov" type="video/quicktime" />
                     <source src="/Video/Video.mov" type="video/mp4" />
                     Jūsų naršyklė nepalaiko video.
                   </video>
@@ -299,14 +300,14 @@ export default function ApiePage() {
             </div>
 
             {/* Middle Column - Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:order-2">
               <p className="text-base text-neutral-600 leading-relaxed">
                 Čia dalinuosi pagrindiniais etapais ir pasiekimais, kurie formavo mano patirtį bei bendruomenę. Leiskis į kelionę kartu su manimi.
               </p>
 
               {/* Patirties statistika */}
-              <div className="bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 rounded-2xl p-6">
-                <h3 className="text-xl font-bold gradient-text mb-4 text-center">Mano kelionė</h3>
+              <div className="bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 rounded-2xl p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold gradient-text mb-4 text-center">Mano kelionė</h3>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] text-white text-xs font-bold">✓</span>
@@ -336,7 +337,7 @@ export default function ApiePage() {
               </div>
               
               {/* Mano misija sekcija */}
-              <div className="bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 rounded-2xl p-6">
+              <div className="bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 rounded-2xl p-4 md:p-6">
                 <div className="flex items-center justify-center mb-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#F28ACD] to-[#AB57F4] flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -356,9 +357,9 @@ export default function ApiePage() {
             </div>
 
             {/* Right Column - Photo Card */}
-            <div className="relative flex w-full justify-center">
-              <div className="w-full max-w-sm rounded-[32px] border border-white/40 bg-white/70 p-6 shadow-[0_30px_80px_-40px_rgba(171,87,244,0.55)] backdrop-blur">
-                <div className="relative h-96 overflow-hidden rounded-[28px] bg-gradient-to-b from-pink-50 to-purple-50">
+            <div className="relative flex w-full justify-center lg:order-3">
+              <div className="w-full max-w-sm rounded-2xl md:rounded-[32px] border border-white/40 bg-white/70 p-4 md:p-6 shadow-[0_30px_80px_-40px_rgba(171,87,244,0.55)] backdrop-blur">
+                <div className="relative h-80 md:h-96 overflow-hidden rounded-xl md:rounded-[28px] bg-gradient-to-b from-pink-50 to-purple-50 mb-4 md:mb-6">
                   <Image
                     src="/images/about/about.jpg"
                     alt="Renata Marcinkutė"
@@ -368,66 +369,80 @@ export default function ApiePage() {
                     sizes="(max-width: 1024px) 320px, 400px"
                   />
                 </div>
-                <p className="mt-5 text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#AB57F4]">
-                  IFBB Elite Pro
-                </p>
-                <p className="mt-2 text-center text-sm text-neutral-600 mb-6">
-                  Trenerė, studijos įkūrėja ir moterų bendruomenės lyderė
-                </p>
-                
-                <div className="flex flex-col gap-3">
-                  <GradientButton
-                    as="a"
-                    href="/mitybos-planai"
-                    withArrow
-                    icon="et-circle-cutout"
-                    iconHover="slide-right"
-                    className="w-full justify-center px-6 py-3 text-sm font-semibold"
-                  >
+
+                {/* CTA Buttons */}
+                <div className="space-y-2.5 md:space-y-3">
+                  <GradientButton href="/plans" className="w-full justify-center text-center text-sm md:text-base">
                     Peržiūrėti planus
                   </GradientButton>
-                  <a
-                    href="/kontaktai"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#28262C] px-6 py-3 text-sm font-semibold text-[#28262C] transition hover:bg-[#28262C] hover:text-white"
-                  >
+                  <button className="w-full rounded-full border-2 border-[#F28ACD] bg-white px-4 md:px-6 py-2.5 md:py-3 text-sm md:text-base text-[#F28ACD] font-semibold hover:bg-[#F28ACD] hover:text-white transition-colors duration-300">
                     Susisiekti
-                  </a>
+                  </button>
                 </div>
-              </div>
+              </div>{/* end card wrapper */}
+            </div>{/* end right column wrapper */}
+          </div>
+
+          {/* Gallery Thumbnails - Full Width */}
+          <div className="mt-8 md:mt-16">
+            <div className="flex md:grid overflow-x-auto md:overflow-x-visible gap-3 md:gap-4 pb-4 md:pb-0 snap-x snap-mandatory md:snap-none md:grid-cols-3 lg:grid-cols-8 scrollbar-hide">
+              {[
+                { src: '/images/about/3461.jpeg', alt: 'Renata varžybose 2011' },
+                { src: '/images/about/4478.jpeg', alt: 'Renata ant scenos' },
+                { src: '/images/about/5905.jpeg', alt: 'Renata pose' },
+                { src: '/images/about/7360.jpeg', alt: 'Renata su taure' },
+                { src: '/images/about/7419.jpeg', alt: 'Renata pergalė' },
+                { src: '/images/about/7422.jpeg', alt: 'Renata prizininkė' },
+                { src: '/images/about/13747.jpeg', alt: 'Renata čempionė' },
+                { src: '/images/about/13773.jpeg', alt: 'Renata ant podiumo' },
+              ].map((image, index) => (
+                <div
+                  key={index}
+                  className="relative overflow-hidden rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 flex-shrink-0 w-[70vw] h-[85vh] sm:w-[45vw] sm:h-[60vh] md:w-auto md:h-auto md:aspect-[3/4] snap-start"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 70vw, (max-width: 768px) 45vw, (max-width: 1024px) 33vw, 12.5vw"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* TIMELINE - Zigzag Layout */}
-      <section className="bg-gradient-to-b from-white to-pink-50/30 py-20">
+      <section className="bg-gradient-to-b from-white to-pink-50/30 py-12 md:py-20">
         <div className="max-w-[1440px] mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-[3fr_2fr] gap-8 items-end mb-12">
+          <div className="grid md:grid-cols-[3fr_2fr] gap-6 md:gap-8 items-end mb-8 md:mb-12">
             <div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-rlText mb-0">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-rlText mb-0">
                 Metų <span className="gradient-text">laikrodis</span>
               </h2>
             </div>
             <div>
-              <p className="text-lg text-neutral-600">
+              <p className="text-base md:text-lg text-neutral-600">
                 Nuo pirmųjų startų kultūrizme iki Renata Ladies studijos įkūrimo – kiekvienas žingsnis formavo mano misiją padėti moterims atrasti harmoniją.
               </p>
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {ACHIEVEMENTS.filter(a => a.isHighlight).map((achievement, index) => (
               <div
                 key={`z-${achievement.year}-${index}`}
-                className={`flex flex-col md:flex-row gap-8 items-center ${
+                className={`flex flex-col md:flex-row gap-6 md:gap-8 items-center ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
                 {/* Year Circle */}
-                <div className="flex-shrink-0 w-32 h-32 rounded-full bg-gradient-to-br from-[#F28ACD] to-[#AB57F4] flex items-center justify-center shadow-2xl">
+                <div className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-[#F28ACD] to-[#AB57F4] flex items-center justify-center shadow-2xl">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-white">{achievement.year}</div>
-                    <svg className="w-8 h-8 text-white mx-auto mt-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div className="text-2xl md:text-3xl font-bold text-white">{achievement.year}</div>
+                    <svg className="w-6 h-6 md:w-8 md:h-8 text-white mx-auto mt-1 md:mt-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M18 2H6v5a6 6 0 0 0 12 0V2Z" />
                       <path d="M6 5H4a2 2 0 0 0 0 4h2M18 5h2a2 2 0 1 1 0 4h-2" />
                       <path d="M5 22h14" />
@@ -436,8 +451,8 @@ export default function ApiePage() {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 bg-white rounded-2xl p-6 shadow-lg border-l-4 border-[#F28ACD]">
-                  <p className="text-neutral-800 leading-relaxed">{achievement.title}</p>
+                <div className="flex-1 bg-white rounded-2xl p-4 md:p-6 shadow-lg border-l-4 border-[#F28ACD]">
+                  <p className="text-sm md:text-base text-neutral-800 leading-relaxed">{achievement.title}</p>
                 </div>
               </div>
             ))}

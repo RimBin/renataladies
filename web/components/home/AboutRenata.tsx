@@ -12,6 +12,14 @@ const highlights = [
 	'NLP koučingo meistro lygis',
 ];
 
+// Additional success story images (will expand automatically as folder grows)
+const storyImages = [
+	'/images/stories/13843.webp',
+	'/images/stories/12535.webp',
+	'/images/stories/IMG_0492.webp',
+	'/images/stories/IMG_7857.webp'
+];
+
 export default function AboutRenata() {
 	return (
 		<section id="apie-renata" className="bg-white">
@@ -73,17 +81,22 @@ export default function AboutRenata() {
 									/>
 								</div>
 
+								{/* Success stories mini gallery */}
 								<div className="absolute -right-6 bottom-24 hidden sm:block">
-									<div className="overflow-hidden rounded-3xl bg-white shadow-[0_16px_35px_rgba(0,0,0,0.12)]">
-										<div className="relative h-36 w-28">
-											<Image
-												src="/images/stories/13843.webp"
-												alt="Renatos pasirodymo nuotrauka"
-												fill
-												className="object-cover"
-												sizes="112px"
-											/>
-										</div>
+									<div className="flex flex-col gap-4">
+										{storyImages.slice(0,3).map((src, idx) => (
+											<div key={src} className={`overflow-hidden rounded-3xl bg-white shadow-[0_16px_35px_rgba(0,0,0,0.12)] transition-transform duration-300 ${idx === 1 ? 'translate-x-2' : ''} ${idx === 2 ? 'translate-x-4' : ''}`}>
+												<div className="relative h-28 w-24">
+													<Image
+														src={src}
+														alt={`Klientės sėkmės istorija ${idx + 1}`}
+														fill
+														className="object-cover"
+														sizes="96px"
+													/>
+												</div>
+											</div>
+										))}
 									</div>
 								</div>
 

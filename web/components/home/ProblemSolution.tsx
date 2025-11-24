@@ -71,7 +71,7 @@ export default function ProblemSolution() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 items-stretch">
+        <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 items-stretch">
           <div className="flex flex-col gap-6">
             {leftCol.map((problem, idx) => (
               <Reveal key={problem.title} delay={0.1 * (idx + 1)}>

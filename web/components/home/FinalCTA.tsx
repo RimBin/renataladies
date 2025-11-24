@@ -14,32 +14,22 @@ export default function FinalCTA() {
     offset: ['start end', 'end start']
   })
 
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1.3, 1])
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0.2, 0.4])
   const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1])
   const contentY = useTransform(scrollYProgress, [0, 0.4], [50, 0])
 
   return (
     <section
       ref={containerRef}
-      className="relative bg-gradient-to-br from-neutral-100 to-white min-h-[600px] sm:min-h-[700px] py-24 sm:py-32 overflow-hidden"
+      className="relative min-h-[600px] sm:min-h-[700px] py-24 sm:py-32 overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/cta/2025-R-3.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
     >
       <motion.div
-        style={{ scale: imageScale, opacity: imageOpacity }}
-        className="absolute inset-0 will-change-transform"
-      >
-        <img
-          src="/images/Renata call to action.webp"
-          alt="Renata"
-          className="w-full h-full object-cover object-[65%_calc(50%-30px)] sm:object-center"
-        />
-      </motion.div>
-
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-transparent" />
-
-      <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="relative max-w-[1440px] mx-auto px-4 md:px-6 flex items-center min-h-[600px] sm:min-h-[700px] will-change-transform"
+        className="relative z-10 max-w-[1440px] mx-auto px-4 md:px-6 grid lg:grid-cols-[1.4fr_minmax(260px,360px)] gap-10 items-center min-h-[600px] sm:min-h-[700px] will-change-transform"
       >
         <Reveal>
           <div className="max-w-2xl">
@@ -66,6 +56,8 @@ export default function FinalCTA() {
             <QuizModal />
           </div>
         </Reveal>
+
+        <div />
       </motion.div>
     </section>
   )

@@ -90,8 +90,10 @@ export default function SupplementDetailPage() {
   const { add } = useCart()
   const [quantity, setQuantity] = useState(1)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(0)
 
   const supplement = SUPPLEMENTS.find(s => s.slug === params.slug)
+  const images = supplement ? [supplement.image, supplement.image, supplement.image] : []
 
   if (!supplement) {
     return (
@@ -137,16 +139,37 @@ export default function SupplementDetailPage() {
       {/* Product Detail */}
       <section className="max-w-[1440px] mx-auto px-4 pb-16 sm:pb-24">
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Image */}
-          <div className="relative aspect-square rounded-2xl overflow-hidden bg-neutral-100">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src={supplement.image}
-              alt={supplement.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-neutral-700">
-              {supplement.category}
+          {/* Image Gallery */}
+          <div className="flex gap-4">
+            {/* Thumbnail Gallery - Vertical */}
+            <div className="flex flex-col gap-3 max-h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-neutral-300 scrollbar-track-neutral-100">
+              {images.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedImage(idx)}
+                  className={`relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden border-2 transition ${
+                    selectedImage === idx
+                      ? 'border-[#F28ACD] shadow-md'
+                      : 'border-neutral-200 hover:border-neutral-300'
+                  }`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={img} alt={`${supplement.title} ${idx + 1}`} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+
+            {/* Main Image */}
+            <div className="relative flex-1 aspect-square rounded-2xl overflow-hidden bg-neutral-100">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src={images[selectedImage]}
+                alt={supplement.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-neutral-700">
+                {supplement.category}
+              </div>
             </div>
           </div>
 

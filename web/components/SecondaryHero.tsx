@@ -24,23 +24,42 @@ export default function SecondaryHero({
   ctaText = 'Rinkis savo kelią',
   ctaHref = '#paslaugos'
 }: SecondaryHeroProps) {
-  const words = title.trim().split(/\s+/)
+  const lines = title.trim().split('\n')
   const isGradientWord = (word: string) =>
     gradientWords.some(
       (gw) => gw.toLowerCase() === word.toLowerCase().replace(/[,!?]/g, '')
     )
 
-  const wordVariants = {
-    hidden: { opacity: 0, y: 12 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
+  const headingVariants = {
+    hidden: {},
+    visible: {
       transition: {
-        duration: 0.5,
-        delay: 0.2 * i,
-        ease: [0.25, 0.8, 0.25, 1]
+        staggerChildren: 0.09,
+        delayChildren: 0.04
       }
-    })
+    }
+  }
+
+  const wordVariants = {
+    hidden: {
+      opacity: 0,
+      x: -36,
+      y: 32,
+      scale: 0.9,
+      rotate: -5
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 450,
+        damping: 30
+      }
+    }
   }
 
   return (
@@ -65,43 +84,37 @@ export default function SecondaryHero({
       <div className="relative max-w-[1440px] mx-auto px-4 md:px-6 flex items-center min-h-[75vh]">
         <div className="max-w-2xl lg:max-w-3xl">
           <motion.h1
-            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-rlText mb-6 leading-[1.1] whitespace-normal"
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-rlText mb-6 leading-[1.1]"
+            variants={headingVariants}
             initial="hidden"
             animate="visible"
           >
-            <span className="whitespace-nowrap">
-              <motion.span
-                className={`${isGradientWord(words[0]) ? 'gradient-text' : ''} inline-block`}
-                variants={wordVariants}
-                custom={0}
-              >
-                {words[0]}
-              </motion.span>
-              {'\u00A0'}
-              <motion.span
-                className={`${isGradientWord(words[1]) ? 'gradient-text' : ''} inline-block`}
-                variants={wordVariants}
-                custom={1}
-              >
-                {words[1]}
-              </motion.span>
-            </span>
-            <br />
-            <motion.span
-              className={`${isGradientWord(words[2]) ? 'gradient-text' : ''} inline-block`}
-              variants={wordVariants}
-              custom={2}
-            >
-              {words.slice(2).join(' ')}
-            </motion.span>
+            {lines.map((line, lineIndex) => (
+              <div key={lineIndex} className="whitespace-nowrap">
+                {line.split(/\s+/).map((word, wordIndex) => (
+                  <motion.span
+                    key={`${word}-${lineIndex}-${wordIndex}`}
+                    className={`${isGradientWord(word) ? 'gradient-text' : ''} inline-block mr-2 sm:mr-3 md:mr-4`}
+                    variants={wordVariants}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
+            ))}
           </motion.h1>
 
           {subtitle && (
             <motion.p
               className="text-xl md:text-2xl text-neutral-700 mb-8 leading-relaxed font-medium max-w-2xl"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, ease: [0.25, 0.8, 0.25, 1], delay: 0.15 }}
+              initial={{ opacity: 0, y: 32, skewY: 3 }}
+              animate={{ opacity: 1, y: 0, skewY: 0 }}
+              transition={{
+                type: 'spring',
+                stiffness: 260,
+                damping: 28,
+                delay: 0.45
+              }}
             >
               {subtitle}
             </motion.p>
@@ -110,18 +123,28 @@ export default function SecondaryHero({
           {/* Children (bullets + avatars) or Quiz */}
           {children ? (
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, ease: [0.25, 0.8, 0.25, 1], delay: 0.3 }}
+              initial={{ opacity: 0, y: 36, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 280,
+                damping: 28,
+                delay: 0.5
+              }}
             >
               {children}
 
               {/* CTA below children */}
               <motion.div
                 className="mt-8 flex flex-col sm:flex-row gap-4 items-start"
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, ease: [0.25, 0.8, 0.25, 1], delay: 0.45 }}
+                initial={{ opacity: 0, y: 34, scale: 0.94 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 320,
+                  damping: 24,
+                  delay: 0.95
+                }}
               >
                 <GradientButton
                   as="a"
@@ -137,9 +160,14 @@ export default function SecondaryHero({
             </motion.div>
           ) : (
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, ease: [0.25, 0.8, 0.25, 1], delay: 0.3 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 26,
+                delay: 0.35
+              }}
             >
               <QuizModal />
             </motion.div>
