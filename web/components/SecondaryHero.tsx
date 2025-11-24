@@ -106,7 +106,7 @@ export default function SecondaryHero({
 
           {subtitle && (
             <motion.p
-              className="text-xl md:text-2xl text-neutral-700 mb-8 leading-relaxed font-medium max-w-2xl"
+              className="text-base md:text-lg lg:text-xl text-neutral-700 mb-8 leading-relaxed font-medium max-w-2xl"
               initial={{ opacity: 0, y: 32, skewY: 3 }}
               animate={{ opacity: 1, y: 0, skewY: 0 }}
               transition={{

@@ -291,7 +291,16 @@ export default function ApiePage() {
                     playsInline
                     preload="auto"
                     className="w-full h-full object-cover"
+                    style={{
+                      imageRendering: 'high-quality',
+                      WebkitBackfaceVisibility: 'hidden',
+                      MozBackfaceVisibility: 'hidden',
+                      backfaceVisibility: 'hidden',
+                      transform: 'translateZ(0)',
+                      willChange: 'transform'
+                    }}
                   >
+                    <source src="/Video/Video.mov" type="video/quicktime" />
                     <source src="/Video/Video.mov" type="video/mp4" />
                     Jūsų naršyklė nepalaiko video.
                   </video>
